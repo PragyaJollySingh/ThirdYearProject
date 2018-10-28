@@ -21,6 +21,6 @@ All Plant realted classes- Pragya and Noor
 
 Any Zombie and game board realted classes- Alexander and Johan
 
-Refactoring: Everyone
+Refactoring and Java Docs: Everyone
 
 UserControls:
