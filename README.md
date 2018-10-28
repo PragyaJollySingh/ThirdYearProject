@@ -2,10 +2,7 @@
 
 Plants vs Zombie Puzzle Simulation 
 Authors: 
-Alexander Johns 
-,Pragya Singh 
-,Noor Ncho
-,Johan Westeinde
+Alexander Johns,Pragya Singh,Noor Ncho,Johan Westeinde
 
 ReadMe: 
 
@@ -25,4 +22,5 @@ Refactoring and Java Docs: Everyone
 
 UserControls:
 
+Step 1: Main file located is in Level 1.jar
 
