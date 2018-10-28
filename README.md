@@ -3,9 +3,9 @@
 Plants vs Zombie Puzzle Simulation 
 Authors: 
 Alexander Johns 
-Pragya Singh 
-Noor Andin 
-Johan Westeinde
+,Pragya Singh 
+,Noor Ncho
+,Johan Westeinde
 
 ReadMe: 
 
