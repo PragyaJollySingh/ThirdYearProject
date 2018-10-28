@@ -1,10 +1,9 @@
-public class Plant extends Actor
+
+public class Plant extends Actor 
 {
 	int health; 
 	int cost; 
 	boolean alive;
-	private int xCordinate;
-	private int yCordinate;
 	
 	
 	public Plant(int health, int cost) 
@@ -14,6 +13,17 @@ public class Plant extends Actor
 		this.alive = true;
 	}
 
+
+	public int getHealth() {
+		return health;
+	}
+
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+
 	public int getCost() {
 		return cost;
 	}
@@ -22,21 +32,4 @@ public class Plant extends Actor
 	public void setCost(int cost) {
 		this.cost = cost;
 	}
-	
-	public int getxCordinate() {
-		return xCordinate;
-	}
-
-	public void setxCordinate(int xCordinate) {
-		this.xCordinate = xCordinate;
-	}
-
-	public int getyCordinate() {
-		return yCordinate;
-	}
-
-	public void setyCordinate(int yCordinate) {
-		this.yCordinate = yCordinate;
-	}
-	
 }

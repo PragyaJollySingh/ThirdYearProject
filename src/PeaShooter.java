@@ -2,31 +2,39 @@ import java.util.ArrayList;
 
 public class PeaShooter extends Plant
 {
-	int xCordinate;
-	int yCordinate;
+	int xCoordinate;
+	int yCoordinate;
 	int attackDamage;
-	private Spot spotPlaced;
+	Spot spotPlaced;
 	private Board gameBoard;
 	private Wave wave;
 	
-	public PeaShooter( int xCordinate, int yCordinate, int attackDamage, Spot spotPlaced, Board gameBoard, Wave wave) 
+	public PeaShooter( int xCoordinate, int yCoordinate, int attackDamage, Spot spotPlaced, Board gameBoard, Wave wave) 
 	{
 		super(100, 100);
-		this.xCordinate = xCordinate;
-		this.yCordinate = yCordinate;
+		this.xCoordinate = xCoordinate;
+		this.yCoordinate = yCoordinate;
 		this.attackDamage = attackDamage;
 		this.spotPlaced = spotPlaced;
 		this.gameBoard = gameBoard;
 		this.wave = wave;
 	}
 
-	/*public int getAttackDamage() {
-		return attackDamage;
+	public int getxCoordinate() {
+		return xCoordinate;
 	}
 
-	public void setAttackDamage(int attackDamage) {
-		this.attackDamage = attackDamage;
-	}*/
+	public void setxCoordinate(int xCoordinate) {
+		this.xCoordinate = xCoordinate;
+	}
+
+	public int getyCoordinate() {
+		return yCoordinate;
+	}
+
+	public void setyCoordinate(int yCoordinate) {
+		this.yCoordinate = yCoordinate;
+	}
 
 	public Spot getSpotPlaced() {
 		return spotPlaced;
@@ -41,7 +49,7 @@ public class PeaShooter extends Plant
 		ArrayList<Spot> attackableZombieSpotsInRow = new ArrayList<Spot>();
 		for(Spot s : gameBoard.getGrid()) 
 		{
-			if(s.getyCord() == this.yCordinate && (s.getxCord() >= this.xCordinate)) 
+			if(s.getyCoord() == this.yCoordinate && (s.getxCoord() >= this.xCoordinate)) 
 			{
 				if(s.isHasZombie()) 
 				{
@@ -55,7 +63,7 @@ public class PeaShooter extends Plant
 		for(Spot zSpot : attackableZombieSpotsInRow) 
 		{
 			closestSpot = attackableZombieSpotsInRow.get(0);
-			if(zSpot.getxCord() < closestSpot.getxCord()) 
+			if(zSpot.getxCoord() < closestSpot.getxCoord()) 
 			{
 				closestSpot = zSpot;
 			}
@@ -65,8 +73,8 @@ public class PeaShooter extends Plant
 		{
 			Zombie zombieToAttack = closestSpot.getFirstZombie();
 			zombieToAttack.setHealth(zombieToAttack.getHealth() - this.attackDamage);
-			System.out.print("Zombie attacked at spot x: " + Integer.toString(closestSpot.getxCord()) + 
-					  " y: " + Integer.toString(closestSpot.getyCord()) + "\n");
+			System.out.print("Zombie attacked at spot x: " + Integer.toString(closestSpot.getxCoord()) + 
+					  " y: " + Integer.toString(closestSpot.getyCoord()) + "\n");
 			System.out.print("Zombie's current health is: " + Integer.toString(zombieToAttack.getHealth()) + "!\n");
 			
 			
@@ -75,8 +83,8 @@ public class PeaShooter extends Plant
 				zombieToAttack.setAlive(false);
 				closestSpot.getSpotZombies().remove(0);
 				wave.setNumberOfZombies(wave.getNumberOfZombies() - 1);
-				System.out.print("Zombie killed at spot x: " + Integer.toString(closestSpot.getxCord()) + 
-													  " y: " + Integer.toString(closestSpot.getyCord()) + "\n");
+				System.out.print("Zombie killed at spot x: " + Integer.toString(closestSpot.getxCoord()) + 
+													  " y: " + Integer.toString(closestSpot.getyCoord()) + "\n");
 				System.out.print("Currently " + Integer.toString(wave.getNumberOfZombies()) + " zombies remaining in this wave.\n");
 			}
 		}
@@ -96,6 +104,7 @@ public class PeaShooter extends Plant
 
 	public void setWave(Wave wave) {
 		this.wave = wave;
-	}	
+	}
+	
 	
 }

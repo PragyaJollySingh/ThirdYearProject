@@ -2,12 +2,12 @@
 public class Zombie extends Actor
 {
 	int health; 
-	private int attackDamage;
-	private boolean atPlant;
-	private boolean attacking;
-	private Spot currentSpot; 
-	private Board gameBoard;
-	boolean alive;	
+	int attackDamage;
+	boolean atPlant;
+	boolean attacking;
+	Spot currentSpot; 
+	Board gameBoard;
+	boolean alive;
 	
 	public Zombie(int health, int attackDamage, Spot currentSpot, Board gameBoard)
 	{
@@ -49,7 +49,7 @@ public class Zombie extends Actor
 	{
 		if(!currentSpot.isFilled()) 
 		{
-			int futureX = currentSpot.getxCord() - 1;
+			int futureX = currentSpot.getxCoord() - 1;
 			if(futureX == 0) 
 			{
 				gameBoard.getPlayer().die();
@@ -57,15 +57,17 @@ public class Zombie extends Actor
 				System.exit(0);
 			}
 			
+			
+			
 			currentSpot.getSpotZombies().remove(0);
 			currentSpot.setHasZombie(false);
 			
-			gameBoard.spotAt(futureX, currentSpot.getyCord()).addSpotZombie(this);
-			gameBoard.spotAt(futureX, currentSpot.getyCord()).setHasZombie(true);
+			gameBoard.spotAt(futureX, currentSpot.getyCoord()).addSpotZombie(this);
+			gameBoard.spotAt(futureX, currentSpot.getyCoord()).setHasZombie(true);
 			
-			this.currentSpot = gameBoard.spotAt(futureX, currentSpot.getyCord());
+			this.currentSpot = gameBoard.spotAt(futureX, currentSpot.getyCoord());
 			System.out.print("A Zombie has moved to spot x: " + Integer.toString(futureX) + 
-													   " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
+													   " y: " + Integer.toString(currentSpot.getyCoord()) + "\n");
 		}
 		else 
 		{
@@ -74,8 +76,8 @@ public class Zombie extends Actor
 			{
 				int currentHealth = currentSpot.getSpotSunflower().getHealth();
 				currentSpot.getSpotSunflower().setHealth(currentHealth - attackDamage);
-				System.out.println("A Zombie has attacked Sunflower at x: " + Integer.toString(currentSpot.getxCord()) + 
-						   " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
+				System.out.println("A Zombie has attacked Sunflower at x: " + Integer.toString(currentSpot.getxCoord()) + 
+						   " y: " + Integer.toString(currentSpot.getyCoord()) + "\n");
 				System.out.println("Sunflower Current Health: " + Integer.toString(currentSpot.getSpotSunflower().getHealth()) + "\n");
 				
 				if(currentSpot.getSpotSunflower().getHealth() <= 0) 
@@ -83,16 +85,16 @@ public class Zombie extends Actor
 					currentSpot.getSpotSunflower().setAlive(false);
 					currentSpot.setHasSunflower(false);
 					currentSpot.setFilled(false);
-					System.out.println("A Zombie has killed Sunflower at x: " + Integer.toString(currentSpot.getxCord()) + 
-																	   " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
+					System.out.println("A Zombie has killed Sunflower at x: " + Integer.toString(currentSpot.getxCoord()) + 
+																	   " y: " + Integer.toString(currentSpot.getyCoord()) + "\n");
 				}
 			}
 			else 
 			{
 				int currentHealth = currentSpot.getSpotPeaShooter().getHealth();
 				currentSpot.getSpotPeaShooter().setHealth(currentHealth - attackDamage); 
-				System.out.println("A Zombie has attacked PeaShooter at x: " + Integer.toString(currentSpot.getxCord()) + 
-						   " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
+				System.out.println("A Zombie has attacked PeaShooter at x: " + Integer.toString(currentSpot.getxCoord()) + 
+						   " y: " + Integer.toString(currentSpot.getyCoord()) + "\n");
 				System.out.println("PeaShooter Current Health: " + Integer.toString(currentSpot.getSpotPeaShooter().getHealth()) + "\n");
 				
 				
@@ -101,11 +103,22 @@ public class Zombie extends Actor
 					currentSpot.getSpotPeaShooter().setAlive(false);
 					currentSpot.setSpotPeaShooter(null);
 					currentSpot.setHasPea(false);
-					System.out.println("A Zombie has killed a PeaShooter at x: " + Integer.toString(currentSpot.getxCord()) + 
-							   " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
+					System.out.println("A Zombie has killed a PeaShooter at x: " + Integer.toString(currentSpot.getxCoord()) + 
+							   " y: " + Integer.toString(currentSpot.getyCoord()) + "\n");
 				}
 			}
-		}	
+		}
+	
+	}
+	
+	
+	public int getHealth() 
+	{
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
 	}
 	
 	public boolean isAtPlant() 
@@ -115,6 +128,7 @@ public class Zombie extends Actor
 
 	public void setAtPlant(boolean atPlant) {
 		this.atPlant = atPlant;
-	}	
+	}
+	
 	
 }

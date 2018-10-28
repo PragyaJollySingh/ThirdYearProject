@@ -50,9 +50,9 @@ public class Board
 	{
 		for(Spot s : this.getGrid()) 
 		{
-			if(s.getxCord() == x) 
+			if(s.getxCoord() == x) 
 			{
-				if(s.getyCord() == y) 
+				if(s.getyCoord() == y) 
 				{
 					return s; 
 				}

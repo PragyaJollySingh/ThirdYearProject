@@ -14,7 +14,7 @@ public class Wave
 		 ArrayList<Spot> placeableSpots = new ArrayList<Spot>();
 		 for(Spot s : gameBoard.getGrid()) 
 		 {
-			 if(s.getxCord() == 14) 
+			 if(s.getxCoord() == 14) 
 			 {
 				 placeableSpots.add(s);
 			 }
@@ -24,11 +24,11 @@ public class Wave
 			 Random rand = new Random();
 			 int random = rand.nextInt(5);
 			 Zombie newZombie = new Zombie(100, 10, placeableSpots.get(random) , gameBoard);
-			 Spot placedSpot = gameBoard.spotAt(14, newZombie.getCurrentSpot().getyCord());
+			 Spot placedSpot = gameBoard.spotAt(14, newZombie.getCurrentSpot().getyCoord());
 			 placedSpot.addSpotZombie(newZombie);
 			 placedSpot.setHasZombie(true);
-			 System.out.println("Zombie has been placed at spot x: " + Integer.toString(placedSpot.getxCord()) + 
-					 										  " y: " + Integer.toString(placedSpot.getyCord()));
+			 System.out.println("Zombie has been placed at spot x: " + Integer.toString(placedSpot.getxCoord()) + 
+					 										  " y: " + Integer.toString(placedSpot.getyCoord()));
 		 }
 	}
 

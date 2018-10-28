@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Spot 
 {
 	private int spotId;
-	private int xCord;
-	private int yCord;
+	private int xCoord;
+	private int yCoord;
 	private boolean filled;
 	private boolean hasSunflower;
 	private boolean hasPea;
@@ -13,11 +14,11 @@ public class Spot
 	private PeaShooter spotPeaShooter;
 	private CopyOnWriteArrayList<Zombie> spotZombies;
 	
-	public Spot(int spotId, int xCord, int yCord, boolean filled) 
+	public Spot(int spotId, int xCoord, int yCoord, boolean filled) 
 	{
 		this.spotId = spotId;
-		this.xCord = xCord;
-		this.yCord = yCord; 
+		this.xCoord = xCoord;
+		this.yCoord = yCoord; 
 		this.filled = filled; 
 		this.hasSunflower = false;
 		this.hasPea = false;
@@ -58,24 +59,24 @@ public class Spot
 		this.spotPeaShooter = spotPeaShooter;
 	}
 
-	public void setxCord(int xCord) {
-		this.xCord = xCord;
+	public void setxCoord(int xCoord) {
+		this.xCoord = xCoord;
 	}
 
-	public int getxCord() 
+	public int getxCoord() 
 	{
-		return xCord;
+		return xCoord;
 	}
 	
 	
-	public int getyCord() 
+	public int getyCoord() 
 	{
-		return yCord;
+		return yCoord;
 	}
 	
-	public void setyCord(int yCord) 
+	public void setyCoord(int yCoord) 
 	{
-		this.yCord = yCord;
+		this.yCoord = yCoord;
 	}
 	
 	public boolean isFilled() 
