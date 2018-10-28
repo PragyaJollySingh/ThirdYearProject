@@ -15,6 +15,10 @@ public class Turn
 		askToPlant();
 		
 	}
+	/**Checks the bored at the end to see that the user has done, keeps the player updated
+	 * regarding how many zombies are on the bore dand how many have been defeated
+	 * @return void
+	 */
 	
 	public void finishTurn() 
 	{
@@ -58,6 +62,9 @@ public class Turn
 			wave.setOngoing(false);
 		}
 	}
+	/** Asks the user if they would like to plant a plant or keep the points and plant at another turn
+	 * @return void
+	 */
 	
 	public void askToPlant() 
 	{
@@ -78,6 +85,9 @@ public class Turn
 			askToPlant();
 		}
 	}
+	/**Asks the player what plant they would like to plant on the bored, and does the math 
+	 * to make sure that the player has sufficant coins to pay for that plant
+	 */
 	
 	public void askWhichPlant() 
 	{
@@ -114,6 +124,10 @@ public class Turn
 			askWhichPlant();
 		}
 	}
+	/**Asks the player where they would like to plant the sunflower, and checks to see if it is a valid 
+	 * spot, if it is not then it will let the user know with an error message 
+	 * @param a boolean that represent if there is a sunFlower at that spot
+	 */
 	
 	
 	public void askForXCoordinate(boolean isSunflower) 
@@ -132,6 +146,11 @@ public class Turn
 			askForXCoordinate(isSunflower);
 		}
 	}
+	/** Asks the player for the y corrdinate, checks if it is a valid positions and is not filled,
+	 * and if it is not filled will place a sunflower/peaplants there. it will let you know of the sucessful 
+	 * plantation. If the spot is filled an error message will be displayed 
+	 * @return void
+	 */
 	
 	public void askForYCoordinate(int xCoordinate, boolean isSunflower) 
 	{
