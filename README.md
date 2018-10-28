@@ -14,9 +14,13 @@ This is out milestone 1 code for Plants vs Zombie Puzzle Simulation. With the co
 Roles: 
 
 UML Diagram- Pragya and Johan 
-Sequence Diagram- Noor and Alexander 
+
+Sequence Diagram- Noor and Alexander
+
 All Plant realted classes- Pragya and Noor 
+
 Any Zombie and game board realted classes- Alexander and Johan
+
 Refactoring: Everyone
 
 UserControls:
