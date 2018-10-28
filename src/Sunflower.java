@@ -1,15 +1,15 @@
 
 public class Sunflower extends Plant
 {
-	int xCordinate;
-	int yCordinate;
+	private int xCoordinate;
+	private int yCoordinate;
 	private Player player;
 	
-	public Sunflower(int xCordinate, int yCordinate, Player player) 
+	public Sunflower(int xCoordinate, int yCoordinate, Player player) 
 	{
 		super(100, 50);
-		this.xCordinate = xCordinate;
-		this.yCordinate = yCordinate;
+		this.xCoordinate = xCoordinate;
+		this.yCoordinate = yCoordinate;
 		this.player = player;
 	}
 	
