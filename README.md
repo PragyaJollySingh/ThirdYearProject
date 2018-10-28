@@ -2,10 +2,7 @@
 
 Plants vs Zombie Puzzle Simulation 
 Authors: 
-Alexander Johns 
-,Pragya Singh 
-,Noor Ncho
-,Johan Westeinde
+Alexander Johns,Pragya Singh,Noor Ncho,Johan Westeinde
 
 ReadMe: 
 
