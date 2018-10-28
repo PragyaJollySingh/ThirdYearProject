@@ -1,8 +1,8 @@
 
 public class Sunflower extends Plant
 {
-	private int xCoordinate;
-	private int yCoordinate;
+	int xCoordinate;
+	int yCoordinate;
 	private Player player;
 	
 	public Sunflower(int xCoordinate, int yCoordinate, Player player) 

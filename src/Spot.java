@@ -74,8 +74,7 @@ public class Spot
 		return yCoord;
 	}
 	
-	public void setyCoord(int yCoo
-		rd) 
+	public void setyCoord(int yCoord) 
 	{
 		this.yCoord = yCoord;
 	}

@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class PeaShooter extends Plant
 {
-	private int xCoordinate;
-	private int yCoordinate;
-	private int attackDamage;
-	private Spot spotPlaced;
+	int xCoordinate;
+	int yCoordinate;
+	int attackDamage;
+	Spot spotPlaced;
 	private Board gameBoard;
 	private Wave wave;
 	
-	public PeaShooter( int xCoordinate, int yCorodinate, int attackDamage, Spot spotPlaced, Board gameBoard, Wave wave) 
+	public PeaShooter( int xCoordinate, int yCoordinate, int attackDamage, Spot spotPlaced, Board gameBoard, Wave wave) 
 	{
 		super(100, 100);
 		this.xCoordinate = xCoordinate;
@@ -34,14 +34,6 @@ public class PeaShooter extends Plant
 
 	public void setyCoordinate(int yCoordinate) {
 		this.yCoordinate = yCoordinate;
-	}
-
-	public int getAttackDamage() {
-		return attackDamage;
-	}
-
-	public void setAttackDamage(int attackDamage) {
-		this.attackDamage = attackDamage;
 	}
 
 	public Spot getSpotPlaced() {

@@ -64,11 +64,11 @@ public class Turn
 		System.out.print("It is your turn: press P to place a new plant or N for the next turn\n");
 		Scanner sc = new Scanner(System.in);
 		String input = sc.next();
-		if(input.equals("P")) 
+		if(input.equalsIgnoreCase("P")) 
 		{
 			askWhichPlant();
 		}
-		else if(input.equals("N")) 
+		else if(input.equalsIgnoreCase("N")) 
 		{
 			finishTurn();
 		}
@@ -84,7 +84,7 @@ public class Turn
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What type of plant? Press S for Sunflower or Press P for Pea Shooter\n");
 		String whichPlant = sc.next();
-		if(whichPlant.equals("S")) 
+		if(whichPlant.equalsIgnoreCase("S")) 
 		{
 			if(player.getSunAmount() >= 50) 
 			{
@@ -96,7 +96,7 @@ public class Turn
 				askWhichPlant();
 			}
 		}
-		else if (whichPlant.equals("P")) 
+		else if (whichPlant.equalsIgnoreCase("P")) 
 		{
 			
 			if(player.getSunAmount() >= 100) 

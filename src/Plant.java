@@ -1,9 +1,9 @@
-import java.util.*;
-public class Plant 
+
+public class Plant extends Actor 
 {
-	private int health; 
-	private int cost; 
-	private boolean alive;
+	int health; 
+	int cost; 
+	boolean alive;
 	
 	
 	public Plant(int health, int cost) 
@@ -32,15 +32,4 @@ public class Plant
 	public void setCost(int cost) {
 		this.cost = cost;
 	}
-
-
-	public boolean isAlive() {
-		return alive;
-	}
-
-
-	public void setAlive(boolean alive) {
-		this.alive = alive;
-	}
-	
 }

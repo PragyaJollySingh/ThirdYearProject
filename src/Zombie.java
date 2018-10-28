@@ -1,15 +1,13 @@
 
-public class Zombie 
+public class Zombie extends Actor
 {
-	private int health; 
-	private int attackDamage;
-	private boolean atPlant;
-	private boolean attacking;
-	private Spot currentSpot; 
-	private Board gameBoard;
-	private boolean alive;
-	
-	
+	int health; 
+	int attackDamage;
+	boolean atPlant;
+	boolean attacking;
+	Spot currentSpot; 
+	Board gameBoard;
+	boolean alive;
 	
 	public Zombie(int health, int attackDamage, Spot currentSpot, Board gameBoard)
 	{
@@ -46,15 +44,6 @@ public class Zombie
 	public void setGameBoard(Board gameBoard) {
 		this.gameBoard = gameBoard;
 	}
-
-	public boolean isAlive() {
-		return alive;
-	}
-
-	public void setAlive(boolean alive) {
-		this.alive = alive;
-	}
-
 	
 	public void move() 
 	{
@@ -131,16 +120,6 @@ public class Zombie
 	public void setHealth(int health) {
 		this.health = health;
 	}
-
-	public int getAttackDamage() {
-		return attackDamage;
-	}
-
-	public void setAttackDamage(int attackDamage) 
-	{
-		this.attackDamage = attackDamage;
-	}
-
 	
 	public boolean isAtPlant() 
 	{
