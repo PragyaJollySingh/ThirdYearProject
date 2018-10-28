@@ -20,30 +20,55 @@ public class Zombie extends Actor
 		this.gameBoard = gameBoard;
 		this.alive = true;
 	}
-
+	/** To see if the Zombie is attacking
+	 * @return boolean to show that a zombie is attacking
+	 */
 	public boolean isAttacking() {
 		return attacking;
 	}
+	
+	/** Setting the Zombie to attack 
+	 * @param a type boolean to represent if an attack is occuring
+	 * @return void
+	 */
 
 	public void setAttacking(boolean attacking) {
 		this.attacking = attacking;
 	}
+	/**Gets the current spot of the Zombie 
+	 * @return tyep Spot that represents the spot of the zombie
+	 */
 
 	public Spot getCurrentSpot() {
 		return currentSpot;
 	}
+	/** Set the current spot for the zombie
+	 * @param type spot that is the current location of the Zombie
+	 * @return void
+	 */
 
 	public void setCurrentSpot(Spot currentSpot) {
 		this.currentSpot = currentSpot;
 	}
+	/**Gets the game board 
+	 * @return type Board that is the game board
+	 */
 
 	public Board getGameBoard() {
 		return gameBoard;
 	}
+	/** Set the game board 
+	 * @param type board that is the current board game 
+	 * @return void
+	 */
 
 	public void setGameBoard(Board gameBoard) {
 		this.gameBoard = gameBoard;
 	}
+	/**Moves the Zombie on the board, and attacks if there is something in the next spot to it
+	 * and or moves the zombie up the bored
+	 * @void
+	 */
 	
 	public void move() 
 	{
@@ -110,21 +135,34 @@ public class Zombie extends Actor
 		}
 	
 	}
-	
+	/** Gets the health of the zombie
+	 * @return int type that gets the value of the health of a zombie
+	 */
 	
 	public int getHealth() 
 	{
 		return health;
 	}
+	/** Sets the health
+	 * @param type int that is the health 
+	 * @return void
+	 */
 
 	public void setHealth(int health) {
 		this.health = health;
 	}
+	/**Checks if the Zombie is at a spot that has a plant on it 
+	 * @return a boolen value to indicate if there is plant there
+	 */
 	
 	public boolean isAtPlant() 
 	{
 		return atPlant;
 	}
+	/** Set a zombie at a place where there is a plant there
+	 * @param a boolean that indicates if a zombie is at the same place as a plant
+	 * @return void
+	 */
 
 	public void setAtPlant(boolean atPlant) {
 		this.atPlant = atPlant;

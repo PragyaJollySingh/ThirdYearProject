@@ -12,7 +12,9 @@ public class Sunflower extends Plant
 		this.yCoordinate = yCoordinate;
 		this.player = player;
 	}
-	
+	/**Adds sun to the bored  and prints out how many sun points the player got due to that addition and the current balance
+	**@retuen void
+	**/
 	public void addSunToPlayer() 
 	{
 		player.addSun();

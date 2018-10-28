@@ -32,36 +32,53 @@ public class Wave
 		 }
 	}
 
-
+/** Gets the number of Zombies on the bored 
+ * @return an int type that represents the number of zombies on the board
+ */
 	public int getNumberOfZombies() 
 	{
 		return numberOfZombies;
 	}
 
-
+/** Sets the number of Zombies on the board
+ * @param an int value that represents the number of zombies 
+ * @return void
+ */
 	public void setNumberOfZombies(int numberOfZombies) 
 	{
 		this.numberOfZombies = numberOfZombies;
 	}
-
+	
+/** Gets the game board
+ * @return type board that is the current game board
+ */
 
 	public Board getGameBoard() {
 		return gameBoard;
 	}
+/** Sets the game board 
+ * @param type Board that is the game baord 
+ * @return void
+ */
 
 
 	public void setGameBoard(Board gameBoard)
 	{
 		this.gameBoard = gameBoard;
 	}
-
+/** Checks if the wave of zombies is still going on 
+ * @return a boolean value to show if the wave is still going on
+ */
 
 	public boolean isOngoing()
 	{
 		return ongoing;
 	}
 
-
+/** Sets the wave to ongoing 
+ * @param a boolean that indicates if there is wave that is going on
+ * @return void
+ */
 	public void setOngoing(boolean ongoing)
 	{
 		this.ongoing = ongoing;

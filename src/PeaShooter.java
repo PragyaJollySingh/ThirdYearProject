@@ -19,31 +19,53 @@ public class PeaShooter extends Plant
 		this.gameBoard = gameBoard;
 		this.wave = wave;
 	}
+/** Getting the x coordinate
+ * @return an int value that represents the x coordinate 
+ */
 
 	public int getxCoordinate() {
 		return xCoordinate;
 	}
-
+/** Sets the x coordinate 
+ * @param an int value that is the x coordinate value 
+ * @return void
+ */
 	public void setxCoordinate(int xCoordinate) {
 		this.xCoordinate = xCoordinate;
 	}
-
+/** Gets the y coordinate 
+ * @returns an int value that represent the y coordinate value
+ */
 	public int getyCoordinate() {
 		return yCoordinate;
 	}
+/** Sets the y coordinate 
+ * @param an int value that is the y coordinate
+ * @return void
+ */
 
 	public void setyCoordinate(int yCoordinate) {
 		this.yCoordinate = yCoordinate;
 	}
+/** Gets the spot of the peashooter
+ * @return a Spot that is the spot that the peashooter is placed
+ */
 
 	public Spot getSpotPlaced() {
 		return spotPlaced;
 	}
+/**Sets the spot placed for the peashooter
+ * @param type Spot that the peashooter is placed 
+ * @return void
+ */
 
 	public void setSpotPlaced(Spot spotPlaced) {
 		this.spotPlaced = spotPlaced;
 	}
-
+/** The peashooter attacks the zombies, while giving information about the numeber of zombies on the board 
+ * and their health
+ * @return void 
+ */
 	public void attackZombie() 
 	{
 		ArrayList<Spot> attackableZombieSpotsInRow = new ArrayList<Spot>();
@@ -89,18 +111,31 @@ public class PeaShooter extends Plant
 			}
 		}
 	}
-
+/**Gets the game board 
+ * @return A type board that returns the game board
+ */
 	public Board getGameBoard() {
 		return gameBoard;
 	}
+/** Sets the game board 
+ * @param type Board that is the gameboard 
+ * @return void
+ */
 
 	public void setGameBoard(Board gameBoard) {
 		this.gameBoard = gameBoard;
 	}
+/** Gets the Zombie wave
+ * @return a type Wave that is a wave
+ */
 
 	public Wave getWave() {
 		return wave;
 	}
+/** Sets the wave 
+ * @param a wave of type Wave
+ * @return void
+ */
 
 	public void setWave(Wave wave) {
 		this.wave = wave;
