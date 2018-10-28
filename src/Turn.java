@@ -64,11 +64,11 @@ public class Turn
 		System.out.print("It is your turn: press P to place a new plant or N for the next turn\n");
 		Scanner sc = new Scanner(System.in);
 		String input = sc.next();
-		if(input.equalsIgnoreCase("P")) 
+		if(input.equals("P")) 
 		{
 			askWhichPlant();
 		}
-		else if(input.equalsIgnoreCase("N")) 
+		else if(input.equals("N")) 
 		{
 			finishTurn();
 		}
@@ -77,7 +77,6 @@ public class Turn
 			System.out.println("Invalid Command! \n");
 			askToPlant();
 		}
-		//sc.close();
 	}
 	
 	public void askWhichPlant() 
@@ -85,11 +84,11 @@ public class Turn
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What type of plant? Press S for Sunflower or Press P for Pea Shooter\n");
 		String whichPlant = sc.next();
-		if(whichPlant.equalsIgnoreCase("S")) 
+		if(whichPlant.equals("S")) 
 		{
 			if(player.getSunAmount() >= 50) 
 			{
-				askForXCordinate(true);
+				askForXCoordinate(true);
 			}
 			else 
 			{
@@ -97,12 +96,12 @@ public class Turn
 				askWhichPlant();
 			}
 		}
-		else if (whichPlant.equalsIgnoreCase("P")) 
+		else if (whichPlant.equals("P")) 
 		{
 			
 			if(player.getSunAmount() >= 100) 
 			{
-				askForXCordinate(false);
+				askForXCoordinate(false);
 			}
 			else 
 			{
@@ -114,76 +113,73 @@ public class Turn
 		{
 			askWhichPlant();
 		}
-		//sc.close();
 	}
 	
 	
-	public void askForXCordinate(boolean isSunflower) 
+	public void askForXCoordinate(boolean isSunflower) 
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter an X coordinate: \n");
-		String xCord = sc.next();
-		int xCordinate = Integer.parseInt(xCord);
-		if(xCordinate > -1 && xCordinate < board.getxSize()) 
+		String xCoord = sc.next();
+		int xCoordinate = Integer.parseInt(xCoord);
+		if(xCoordinate > -1 && xCoordinate < board.getxSize()) 
 		{
-			askForYCordinate(xCordinate, isSunflower);
+			askForYCoordinate(xCoordinate, isSunflower);
 		}
 		else 
 		{
 			System.out.println("Invalid X Coordinate! Please try again. \n");
-			askForXCordinate(isSunflower);
+			askForXCoordinate(isSunflower);
 		}
-		//sc.close();
 	}
 	
-	public void askForYCordinate(int xCordinate, boolean isSunflower) 
+	public void askForYCoordinate(int xCoordinate, boolean isSunflower) 
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a Y coordinate: \n");
-		String yCord = sc.next();
-		int yCordinate = Integer.parseInt(yCord);
+		String yCoord = sc.next();
+		int yCoordinate = Integer.parseInt(yCoord);
 		if(isSunflower) 
 		{
-			if(!board.spotAt(xCordinate, yCordinate).isFilled()) 
+			if(!board.spotAt(xCoordinate, yCoordinate).isFilled()) 
 			{
-				board.spotAt(xCordinate, yCordinate).setSpotSunflower(new Sunflower(xCordinate, yCordinate, player));
-				board.spotAt(xCordinate, yCordinate).setFilled(true);
-				board.spotAt(xCordinate, yCordinate).setHasSunflower(true);
+				board.spotAt(xCoordinate, yCoordinate).setSpotSunflower(new Sunflower(xCoordinate, yCoordinate, player));
+				board.spotAt(xCoordinate, yCoordinate).setFilled(true);
+				board.spotAt(xCoordinate, yCoordinate).setHasSunflower(true);
 				player.setSunAmount(player.getSunAmount() - 50);
-				System.out.println("Sunflower placed at coordinates x: " + Integer.toString(xCordinate) +
-																  " y: " + Integer.toString(yCordinate) + " \n");
+				System.out.println("Sunflower placed at coordinates x: " + Integer.toString(xCoordinate) +
+																  " y: " + Integer.toString(yCoordinate) + " \n");
 				System.out.println("Player current sun balance is: " + Integer.toString(player.getSunAmount()) + "!\n");
 				finishTurn();
 			}
 			else  
 			{
-				System.out.print("Spot is filled choose new Y Cord: \n");
-				askForYCordinate(xCordinate, isSunflower);
+				System.out.print("Spot is filled choose new Y Coord: \n");
+				askForYCoordinate(xCoordinate, isSunflower);
 			}
 			
 		}
 		else 
 		{
-			if(!board.spotAt(xCordinate, yCordinate).isFilled()) 
+			if(!board.spotAt(xCoordinate, yCoordinate).isFilled()) 
 			{
-				board.spotAt(xCordinate, yCordinate).setSpotPeaShooter(new PeaShooter(xCordinate, yCordinate, 20, 
-																	board.spotAt(xCordinate, yCordinate), board, wave));
-				board.spotAt(xCordinate, yCordinate).setFilled(true);
-				board.spotAt(xCordinate, yCordinate).setHasPea(true);
+				board.spotAt(xCoordinate, yCoordinate).setSpotPeaShooter(new PeaShooter(xCoordinate, yCoordinate, 20, 
+																	board.spotAt(xCoordinate, yCoordinate), board, wave));
+				board.spotAt(xCoordinate, yCoordinate).setFilled(true);
+				board.spotAt(xCoordinate, yCoordinate).setHasPea(true);
 				player.setSunAmount(player.getSunAmount() - 100);
 				System.out.println("Player current sun balance is: " + Integer.toString(player.getSunAmount()) + "!\n");
-				System.out.println("PeaShooter placed at coordinates x: " + Integer.toString(xCordinate) +
-						  " y: " + Integer.toString(yCordinate) + " \n");
+				System.out.println("PeaShooter placed at coordinates x: " + Integer.toString(xCoordinate) +
+						  " y: " + Integer.toString(yCoordinate) + " \n");
 				finishTurn();
 			}
 			else  
 			{
-				System.out.print("Spot is filled choose new Y Cord: \n");
-				askForYCordinate(xCordinate, isSunflower);
+				System.out.print("Spot is filled choose new Y Coord: \n");
+				askForYCoordinate(xCoordinate, isSunflower);
 			}
 			
 		}
-		//sc.close();
 		
 	}
 	
