@@ -24,3 +24,5 @@ UserControls:
 
 Step 1: Main file located is in Level 1.jar
 
+WARNING: THE individuals that pushed onto git is not a fair representation of the individauls that worked on the project as files were sent through other medians, please look at the readme file as a proper representation of the individuals thats contributed to this project. 
+
