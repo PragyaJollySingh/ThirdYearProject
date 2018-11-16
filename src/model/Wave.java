@@ -8,13 +8,14 @@ public class Wave
 	private Board gameBoard;
 	private boolean ongoing;
 	private String turnDescriptionWave = "";
-	
+	private ArrayList<Zombie> zombies; 
 	
 	public Wave(int numberOfZombies, Board gameBoard)
 	{
 		 this.ongoing = true;
-		 
-		 
+		 this.numberOfZombies = numberOfZombies; 
+	     zombies = new ArrayList<Zombie>(); 
+	     
 		 ArrayList<Integer> placeableSpotIds = new ArrayList<Integer>();
 		 placeableSpotIds.add(9);
 		 placeableSpotIds.add(19);
@@ -34,7 +35,8 @@ public class Wave
 			 {
 				 placedSpot.addSpotZombie(newZombie);
 				 placedSpot.setHasZombie(true);
-				 turnDescriptionWave += "Zombie has been place at spotId: " + String.valueOf(placedSpot.getSpotId()) + "\n";
+		         zombies.add(newZombie);
+		         turnDescriptionWave += "Zombie has been place at spotId: " + String.valueOf(placedSpot.getSpotId()) + "\n";
 				 System.out.println("Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
 			 }
 			
@@ -83,5 +85,12 @@ public class Wave
 		this.ongoing = ongoing;
 	}
 	
-	
+	public ArrayList<Zombie> getZombies() { 
+	    return zombies; 
+	} 
+	 
+	 
+	public void setZombies(ArrayList<Zombie> zombies) { 
+	    this.zombies = zombies; 
+	} 
 }

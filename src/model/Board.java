@@ -4,23 +4,21 @@ import java.util.ArrayList;
 
 public class Board 
 {
-	private int xSize;
-	private int ySize;
+	protected static int xSize = 10;
+	protected static int ySize = 5;
 	private ArrayList<Spot> grid;
 	private Player player;
 	private boolean gameOver = false;
 	
-	public Board(int xSize, int ySize, Player player) 
+	public Board(Player player) 
 	{
 		this.player = player;
-		this.xSize = xSize;
-		this.ySize = ySize;
 		int count = 0;
 		
 		grid = new ArrayList<Spot>();
-		for(int i = 0; i < xSize; i++) 
+		for(int i = 0; i < ySize; i++) 
 		{
-			for(int j = 0; j < ySize; j++) 
+			for(int j = 0; j < xSize; j++) 
 			{
 				Spot s = new Spot(count, j, i, false);
 				grid.add(s);
