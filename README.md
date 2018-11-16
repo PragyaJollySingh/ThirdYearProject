@@ -43,5 +43,7 @@ GUI: The GUI  visually has to have more aligned labels
 It also needs to be able to have icons that can be seen on non mac computers pc wise, as the directory implementation that is used to import the jpeg do not work appropriately for that. 
 Road Map:
 	Next Deliverable: To create and implement the game so that the player is able to choose from a variety of different plants and types of zombies, while adding in a redo button, that can be used as many times as possible.
-	Performance: In the future iteration we would like to make sure that mac users to can also see the icons that are used to represent the zombies, plants and peashooters.
-	User-Interface(GUI)-In the future iterations we will be looking at aligning and making the GUI  look a lot more in sync and therefore appealing to the user.
+	
+Performance: In the future iteration we would like to make sure that mac users to can also see the icons that are used to represent the zombies, plants and peashooters.
+
+User-Interface(GUI)-In the future iterations we will be looking at aligning and making the GUI  look a lot more in sync and therefore appealing to the user.
