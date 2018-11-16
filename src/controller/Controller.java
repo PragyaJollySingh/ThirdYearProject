@@ -11,7 +11,7 @@ import model.Zombie;
 public class Controller {
 
 	private Player currentPlayer = new Player(300);
-	private Board gameBoard = new Board(5, 10, currentPlayer);
+	private Board gameBoard = new Board(currentPlayer);
 	private Wave wave = null;
 
 	public Controller() {
