@@ -1,4 +1,14 @@
-/bin/
-.classpath
-.project
-/doc/
+# Compiled class file
+*.class
+
+# Class path
+*.classpath
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.zip
+*.tar.gz
+
