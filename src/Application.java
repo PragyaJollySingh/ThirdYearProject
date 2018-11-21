@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 import view.MainFrame;
 
 public class Application {

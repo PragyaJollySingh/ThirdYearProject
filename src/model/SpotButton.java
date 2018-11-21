@@ -25,7 +25,7 @@ public class SpotButton extends JButton
 
 	public void addZombie() 
 	{
-		ImageIcon zombieIcon = new ImageIcon("C:\\Users\\dennis\\eclipse-workspace\\PVZVIEW\\src\\zombie.png");
+		ImageIcon zombieIcon = new ImageIcon(getClass().getResource("/resources/zombie.png"));
 		Image zombieImage = zombieIcon.getImage();
 	    Image newZombieImage = zombieImage.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
 	    zombieIcon = new ImageIcon(newZombieImage);
@@ -48,7 +48,5 @@ public class SpotButton extends JButton
 	    Image newPeaShooterImage = peaShooterImage.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
 	    peaShooterIcon = new ImageIcon(newPeaShooterImage);
 	    setIcon(peaShooterIcon);
-	}
-	
-	
+	}	
 }
