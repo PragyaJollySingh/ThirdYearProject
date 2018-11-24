@@ -29,7 +29,7 @@ public class Wave
 		 {
 			 Random rand = new Random();
 			 int random = rand.nextInt(5);
-			 Zombie newZombie = new Zombie(100, 10, gameBoard.spotAt(placeableSpotIds.get(random)) , gameBoard);
+			 Zombie newZombie = new Zombie(100,/* 10,*/ gameBoard.spotAt(placeableSpotIds.get(random)) , gameBoard);
 			 Spot placedSpot = gameBoard.spotAt(placeableSpotIds.get(random));
 			 if((newZombie != null) && (placedSpot != null)) 
 			 {
