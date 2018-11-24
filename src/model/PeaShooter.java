@@ -1,10 +1,8 @@
 package model;
+
 import java.util.ArrayList;
 
-
-
-public class PeaShooter extends Plant
-{
+public class PeaShooter extends Plant {
 	private int xCordinate;
 	private int yCordinate;
 	private int attackDamage;
@@ -12,9 +10,8 @@ public class PeaShooter extends Plant
 	private Board gameBoard;
 	private Wave wave;
 	private String peaShooterTurnDescription = "";
-	
-	public PeaShooter( int xCordinate, int yCordinate, int attackDamage, Spot spotPlaced, Board gameBoard, Wave wave) 
-	{
+
+	public PeaShooter(int xCordinate, int yCordinate, int attackDamage, Spot spotPlaced, Board gameBoard, Wave wave) {
 		super(100, 100);
 		this.xCordinate = xCordinate;
 		this.yCordinate = yCordinate;
@@ -56,56 +53,50 @@ public class PeaShooter extends Plant
 		this.spotPlaced = spotPlaced;
 	}
 
-	public void attackZombie() 
-	{
+	public void attackZombie() {
 		ArrayList<Spot> attackableZombieSpotsInRow = new ArrayList<Spot>();
-		for(Spot s : gameBoard.getGrid()) 
-		{
-			if(s.getyCord() == this.yCordinate && (s.getxCord() >= this.xCordinate)) 
-			{
-				if(s.isHasZombie()) 
-				{
+		for (Spot s : gameBoard.getGrid()) {
+			if (s.getyCord() == this.yCordinate && (s.getxCord() >= this.xCordinate)) {
+				if (s.isHasZombie()) {
 					attackableZombieSpotsInRow.add(s);
 				}
 			}
 		}
-		
+
 		Spot closestSpot = null;
-		
-		for(Spot zSpot : attackableZombieSpotsInRow) 
-		{
+
+		for (Spot zSpot : attackableZombieSpotsInRow) {
 			closestSpot = attackableZombieSpotsInRow.get(0);
-			if(zSpot.getxCord() < closestSpot.getxCord()) 
-			{
+			if (zSpot.getxCord() < closestSpot.getxCord()) {
 				closestSpot = zSpot;
 			}
 		}
-		
-		if(!closestSpot.hasNoZombies()) 
-		{
+
+		if (!closestSpot.hasNoZombies()) {
 			Zombie zombieToAttack = closestSpot.getFirstZombie();
 			int closestSpotId = closestSpot.getSpotId();
-			peaShooterTurnDescription += "Peashooter will attack zombie at spotId: " + String.valueOf(closestSpotId) + "\n";
+			peaShooterTurnDescription += "Peashooter will attack zombie at spotId: " + String.valueOf(closestSpotId)
+					+ "\n";
 			zombieToAttack.setHealth(zombieToAttack.getHealth() - this.attackDamage);
-			peaShooterTurnDescription += "Peashooter will attacks zombie dealing " + String.valueOf(this.attackDamage) + ".\n";
+			peaShooterTurnDescription += "Peashooter will attacks zombie dealing " + String.valueOf(this.attackDamage)
+					+ ".\n";
 			peaShooterTurnDescription += "Zombie health now at: " + String.valueOf(zombieToAttack.getHealth()) + "!\n";
-			
-			
-			if(zombieToAttack.getHealth() <= 0) 
-			{
+
+			if (zombieToAttack.getHealth() <= 0) {
 				zombieToAttack.setAlive(false);
 				closestSpot.getSpotZombies().remove(0);
 				wave.setNumberOfZombies(wave.getNumberOfZombies() - 1);
-				peaShooterTurnDescription += "Zombie killed at spotId: " + String.valueOf(closestSpot.getSpotId()) + "!\n";
-				System.out.print("Zombie killed at spot x: " + Integer.toString(closestSpot.getxCord()) + 
-													  " y: " + Integer.toString(closestSpot.getyCord()) + "\n");
-				System.out.print("Currently " + Integer.toString(wave.getNumberOfZombies()) + " zombies remaining in this wave.\n");
+				peaShooterTurnDescription += "Zombie killed at spotId: " + String.valueOf(closestSpot.getSpotId())
+						+ "!\n";
+				System.out.print("Zombie killed at spot x: " + Integer.toString(closestSpot.getxCord()) + " y: "
+						+ Integer.toString(closestSpot.getyCord()) + "\n");
+				System.out.print("Currently " + Integer.toString(wave.getNumberOfZombies())
+						+ " zombies remaining in this wave.\n");
 			}
 		}
 	}
 
-	public String getPeaShooterTurnDescription()
-	{
+	public String getPeaShooterTurnDescription() {
 		return peaShooterTurnDescription;
 	}
 
@@ -124,6 +115,5 @@ public class PeaShooter extends Plant
 	public void setWave(Wave wave) {
 		this.wave = wave;
 	}
-	
-	
+
 }
