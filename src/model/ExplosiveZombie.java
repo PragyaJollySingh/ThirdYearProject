@@ -16,7 +16,6 @@ public class ExplosiveZombie extends Zombie {
 	private boolean attacking;
 	private Spot currentSpot; 
 	private Board gameBoard;
-	
 	private boolean alive;
 	public  String turnDescriptionZombie = "";
 	

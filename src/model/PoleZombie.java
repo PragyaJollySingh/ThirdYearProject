@@ -7,6 +7,7 @@ package model;
  * @author Noor
  *
  */
+@SuppressWarnings("unused")
 public class PoleZombie extends Zombie {
 
 	private int health;
