@@ -3,9 +3,10 @@
  * Test class for testing Player's methods (other than setters and getters)
  */
 
-package model;
+package tests;
 
 import junit.framework.TestCase;
+import model.Player;
 
 public class PlayerTest extends TestCase {
 

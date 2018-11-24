@@ -3,9 +3,15 @@
  * Test class for testing Zombie's methods (other than setters and getters)
  */
 
-package model;
+package tests;
 
 import junit.framework.TestCase;
+import model.Board;
+import model.PeaShooter;
+import model.Player;
+import model.Spot;
+import model.Wave;
+import model.Zombie;
 
 public class ZombieTest extends TestCase {
 

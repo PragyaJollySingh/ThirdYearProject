@@ -3,9 +3,11 @@
  * Test class for testing Sunflower's methods (other than setters and getters)
  */
 
-package model;
+package tests;
 
 import junit.framework.TestCase;
+import model.Player;
+import model.Sunflower;
 
 public class SunflowerTest extends TestCase {
 

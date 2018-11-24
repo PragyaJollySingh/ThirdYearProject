@@ -3,9 +3,10 @@
  * Test class for testing PeaShooter's methods (other than setters and getters)
  */
 
-package model;
+package tests;
 
 import junit.framework.TestCase;
+import model.*;
 
 public class PeaShooterTest extends TestCase {
 

@@ -3,9 +3,13 @@
  * Test class for testing Wave's methods (other than setters and getters)
  */
 
-package model;
+package tests;
 
 import junit.framework.TestCase;
+import model.Board;
+import model.Player;
+import model.Wave;
+import model.Zombie;
 
 public class WaveTest extends TestCase {
 
