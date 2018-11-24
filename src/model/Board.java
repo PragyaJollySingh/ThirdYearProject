@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Board 
 {
-	protected static int xSize = 10;
+	public static int xSize = 10;
 	protected static int ySize = 5;
 	private ArrayList<Spot> grid;
 	private Player player;
