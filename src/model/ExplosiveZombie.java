@@ -7,6 +7,7 @@ package model;
  * @author Noor
  *
  */
+@SuppressWarnings("unused")
 public class ExplosiveZombie extends Zombie {
 
 	private int health; 
@@ -15,6 +16,7 @@ public class ExplosiveZombie extends Zombie {
 	private boolean attacking;
 	private Spot currentSpot; 
 	private Board gameBoard;
+	
 	private boolean alive;
 	public  String turnDescriptionZombie = "";
 	
@@ -43,6 +45,8 @@ public class ExplosiveZombie extends Zombie {
 			turnDescriptionZombie += "Explosive Zombie killed pea shooter at spotId: "
 					+ String.valueOf(frontSpot.getSpotId());
 		}
+		
+		currentSpot.getSpotZombies().remove(this); //Removes zombie from list
 		this.alive = false;		
 	}		
 	
