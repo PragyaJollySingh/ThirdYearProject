@@ -70,6 +70,9 @@ public class ExplosiveZombie extends Zombie {
 		} else {
 			this.attacking = true;
 			
+			/****
+			 * The zombie explodes if the is health reaches a certain point
+			 */
 			if(this.health <= 30) {
 				explode();
 			}
