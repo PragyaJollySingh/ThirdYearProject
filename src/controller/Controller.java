@@ -25,6 +25,11 @@ public class Controller {
 				s.getSpotSunflower().addSunToPlayer();
 			}
 		}
+		for (Spot s : gameBoard.getGrid()) {
+			if (s.isHasDSunflower()) {
+				s.getSpotDSunflower().addDSunToPlayer();
+			}
+		}
 
 		for (Spot s : gameBoard.getGrid()) {
 			if (s.isHasZombie()) {
@@ -116,7 +121,11 @@ public class Controller {
 			if (s.isFilled()) {
 				if (s.isHasSunflower()) {
 					turnDescription += s.getSpotSunflower().getTurnDescriptionSunflower();
-				} else if (s.isHasPea()) {
+				} 
+				else if (s.isHasDSunflower()){
+					turnDescription += s.getSpotDSunflower().getTurnDescriptionDSunflower();
+				}
+				else if (s.isHasPea()) {
 					turnDescription += s.getSpotPeaShooter().getPeaShooterTurnDescription();
 				}
 			}

@@ -49,6 +49,16 @@ public class SpotButton extends JButton
 			System.out.println(ex);
 		}
 	}
+	public void addDSunflower(){
+		try{
+			ImageIcon doublesunflowerIcon= new ImageIcon("resources/Dsunflower.png");
+			Image doublesunflowerImage= doublesunflowerIcon.getImage().getScaledInstance(25,25,Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(doublesunflowerImage));
+			setDisabledIcon(new ImageIcon(doublesunflowerImage));
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+	}
 	
 	public void addPeashooter() 
 	{
