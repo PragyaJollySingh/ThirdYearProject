@@ -130,11 +130,8 @@ public class MainFrame extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 
 						SpotButton buttonClicked = (SpotButton) e.getSource();
-
 						int firstClickedId = buttonClicked.getSpotButtonID();
-
 						Spot clickedSpot = controller.spotAt(firstClickedId);
-
 						JOptionPane.showMessageDialog(null, clickedSpot.toString());
 
 						if (!clickedSpot.isFilled()) {
@@ -198,7 +195,7 @@ public class MainFrame extends JFrame {
 									controller.spotAt(clickedId).setFilled(true);
 									controller.spotAt(clickedId)
 											.setSpotPeaShooter(new PeaShooter(controller.spotAt(clickedId).getxCord(),
-													controller.spotAt(clickedId).getyCord(), 50,
+													controller.spotAt(clickedId).getyCord(), 25,
 													controller.spotAt(clickedId), controller.getGameBoard(),
 													controller.getWave()));
 									controller.getCurrentPlayer()
