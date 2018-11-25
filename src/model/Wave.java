@@ -17,6 +17,7 @@ public class Wave
 	     zombies = new ArrayList<Zombie>(); 
 	     
 		 ArrayList<Integer> placeableSpotIds = new ArrayList<Integer>();
+		// ArrayList<Integer> UsedSpotIds = new ArrayList<Integer>();
 		 placeableSpotIds.add(9);
 		 placeableSpotIds.add(19);
 		 placeableSpotIds.add(29);
@@ -29,35 +30,50 @@ public class Wave
 		 {
 			 Random rand = new Random();
 			 int random = rand.nextInt(5);
-			 Zombie newZombie = null;
+			 //Zombie newZombie = null;
 			 
 			 //Makes 3 normal zombies
-			 if(i <= 2) {
-				 newZombie = new Zombie(100,/* 10,*/ gameBoard.spotAt(placeableSpotIds.get(random)) , gameBoard);
+			 if(i == 0) {
+				 Zombie newZombie = new Zombie(100, gameBoard.spotAt(placeableSpotIds.get(random)) , gameBoard);
+				 int Id = placeableSpotIds.get(random);
+				 Spot placedSpot = gameBoard.spotAt(Id);
+					 if((newZombie != null) && (placedSpot != null)){
+						 placedSpot.addSpotZombie(newZombie);
+						 placedSpot.setHasZombie(true);
+						 zombies.add(newZombie);
+						 turnDescriptionWave += "Zombie has been place at spotId: " + String.valueOf(placedSpot.getSpotId()) + "\n";
+						 System.out.println("Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
+					 } 
 			 }
+		 
 			 
 			 //Makes 1 explosive zombie
 			 else if(i == numberOfZombies - 2) {
-				 newZombie = new ExplosiveZombie(100, gameBoard.spotAt(placeableSpotIds.get(random)), gameBoard);
+				 Zombie newZombie = new ExplosiveZombie(100, gameBoard.spotAt(placeableSpotIds.get(random)) , gameBoard);
+				 Spot placedSpot = gameBoard.spotAt(placeableSpotIds.get(random));
+				 if((newZombie != null) && (placedSpot != null)) 
+				 {
+					 placedSpot.addSpotZombie(newZombie);
+					 placedSpot.setHasZombie(true);
+			         zombies.add(newZombie);
+			         turnDescriptionWave += "Explosive Zombie has been place at spotId: " + String.valueOf(placedSpot.getSpotId()) + "\n";
+					 System.out.println("Explosive Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
+				 }
 			 }
-			 
 			 //Makes 1 pole zombie
 			 else if(i == numberOfZombies - 1) {
-				 newZombie = new PoleZombie(100, gameBoard.spotAt(placeableSpotIds.get(random)), gameBoard);
-			 }
-			 //Zombie newZombie = new Zombie(100,/* 10,*/ gameBoard.spotAt(placeableSpotIds.get(random)) , gameBoard);
-			 Spot placedSpot = gameBoard.spotAt(placeableSpotIds.get(random));
-			 if((newZombie != null) && (placedSpot != null)) 
-			 {
-				 placedSpot.addSpotZombie(newZombie);
-				 placedSpot.setHasZombie(true);
-		         zombies.add(newZombie);
-		         turnDescriptionWave += "Zombie has been place at spotId: " + String.valueOf(placedSpot.getSpotId()) + "\n";
-				 System.out.println("Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
-			 }
-			
-		 }
-		 
+				 Zombie newZombie = new PoleZombie(100, gameBoard.spotAt(placeableSpotIds.get(random)), gameBoard);
+				 Spot placedSpot = gameBoard.spotAt(placeableSpotIds.get(random));
+				 if((newZombie != null) && (placedSpot != null)) 
+				 {
+					 placedSpot.addSpotZombie(newZombie);
+					 placedSpot.setHasZombie(true);
+			         zombies.add(newZombie);
+			         turnDescriptionWave += "Pole Zombie has been place at spotId: " + String.valueOf(placedSpot.getSpotId()) + "\n";
+					 System.out.println("Pole Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
+				 }
+			 }			
+		 }		 
 	}
 
 
