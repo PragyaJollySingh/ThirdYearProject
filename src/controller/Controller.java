@@ -13,6 +13,7 @@ public class Controller {
 	private Player currentPlayer = new Player(300);
 	private Board gameBoard = new Board(currentPlayer);
 	private Wave wave = null;
+	private final int NumZombies = 5;
 
 	public Controller() {
 
@@ -84,7 +85,7 @@ public class Controller {
 	}
 
 	public void startWave() {
-		wave = new Wave(3, gameBoard);
+		wave = new Wave(NumZombies, gameBoard);
 	}
 
 	public int getZombieCount() {
