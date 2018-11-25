@@ -1,4 +1,5 @@
 package view;
+
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -18,72 +19,59 @@ import javax.swing.JPanel;
 import controller.Controller;
 import model.SpotButton;
 
-public class GridButtonPanel extends JPanel
-{
-	
+public class GridButtonPanel extends JPanel {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private SpotButton A1,A2,A3,A4,A5,A6,A7,A8,A9,A10;
-	private SpotButton B1,B2,B3,B4,B5,B6,B7,B8,B9,B10;
-	private SpotButton C1, C2, C3,C4,C5,C6,C7,C8,C9,C10;
-	private SpotButton D1,D2,D3,D4,D5,D6,D7,D8,D9,D10;
-	private SpotButton E1,E2,E3,E4,E5,E6,E7,E8,E9,E10;
-	private ArrayList<SpotButton>gridButtons;
+	private SpotButton A1, A2, A3, A4, A5, A6, A7, A8, A9, A10;
+	private SpotButton B1, B2, B3, B4, B5, B6, B7, B8, B9, B10;
+	private SpotButton C1, C2, C3, C4, C5, C6, C7, C8, C9, C10;
+	private SpotButton D1, D2, D3, D4, D5, D6, D7, D8, D9, D10;
+	private SpotButton E1, E2, E3, E4, E5, E6, E7, E8, E9, E10;
+	private ArrayList<SpotButton> gridButtons;
 	private Controller controller;
-	
-	public GridButtonPanel() 
-	{
-			gridButtons = new ArrayList<SpotButton>();
-			controller = new Controller();
-			
-			initButtons();
-			
-			setLayout(new GridLayout(5,10));
-			addButtonsToPanel();
-			
-			disableGridButtons();
+
+	public GridButtonPanel() {
+		gridButtons = new ArrayList<SpotButton>();
+		controller = new Controller();
+
+		initButtons();
+
+		setLayout(new GridLayout(5, 10));
+		addButtonsToPanel();
+
+		disableGridButtons();
 	}
-	
-	
-	
-	public void addButtonsToPanel() 
-	{
-		for(SpotButton sb : gridButtons) 
-		{
-			if(sb != null) 
-			{
+
+	public void addButtonsToPanel() {
+		for (SpotButton sb : gridButtons) {
+			if (sb != null) {
 				this.add(sb);
 			}
-			
+
 		}
 	}
-	
-	public void enableGridButtons() 
-	{
-		for(SpotButton sb : gridButtons) 
-		{
-			if(sb != null) 
-			{
+
+	public void enableGridButtons() {
+		for (SpotButton sb : gridButtons) {
+			if (sb != null) {
 				sb.setEnabled(true);
 			}
-			
+
 		}
 	}
-	
-	public void disableGridButtons() 
-	{
-		for(SpotButton sb : gridButtons) 
-		{
-			if(sb != null) 
-			{
+
+	public void disableGridButtons() {
+		for (SpotButton sb : gridButtons) {
+			if (sb != null) {
 				sb.setEnabled(false);
 			}
-			
+
 		}
 	}
-	
+
 	public SpotButton getA1() {
 		return A1;
 	}
@@ -500,20 +488,15 @@ public class GridButtonPanel extends JPanel
 		this.controller = controller;
 	}
 
-	public void addZombie(int spotId) 
-	{
-		for(SpotButton sb : gridButtons) 
-		{
-			if(sb.getSpotButtonID() == spotId) 
-			{
+	public void addZombie(int spotId) {
+		for (SpotButton sb : gridButtons) {
+			if (sb.getSpotButtonID() == spotId) {
 				sb.addZombie();
 			}
 		}
 	}
-	
-	
-	public void initButtons() 
-	{
+
+	public void initButtons() {
 		A1 = new SpotButton();
 		A2 = new SpotButton();
 		A3 = new SpotButton();
@@ -524,7 +507,7 @@ public class GridButtonPanel extends JPanel
 		A8 = new SpotButton();
 		A9 = new SpotButton();
 		A10 = new SpotButton();
-		
+
 		gridButtons.add(A1);
 		gridButtons.add(A2);
 		gridButtons.add(A3);
@@ -536,7 +519,7 @@ public class GridButtonPanel extends JPanel
 		gridButtons.add(A8);
 		gridButtons.add(A9);
 		gridButtons.add(A10);
-		
+
 		B1 = new SpotButton();
 		B2 = new SpotButton();
 		B3 = new SpotButton();
@@ -547,7 +530,7 @@ public class GridButtonPanel extends JPanel
 		B8 = new SpotButton();
 		B9 = new SpotButton();
 		B10 = new SpotButton();
-		
+
 		gridButtons.add(B1);
 		gridButtons.add(B2);
 		gridButtons.add(B3);
@@ -559,7 +542,7 @@ public class GridButtonPanel extends JPanel
 		gridButtons.add(B8);
 		gridButtons.add(B9);
 		gridButtons.add(B10);
-		
+
 		C1 = new SpotButton();
 		C2 = new SpotButton();
 		C3 = new SpotButton();
@@ -570,7 +553,7 @@ public class GridButtonPanel extends JPanel
 		C8 = new SpotButton();
 		C9 = new SpotButton();
 		C10 = new SpotButton();
-		
+
 		gridButtons.add(C1);
 		gridButtons.add(C2);
 		gridButtons.add(C3);
@@ -582,7 +565,7 @@ public class GridButtonPanel extends JPanel
 		gridButtons.add(C8);
 		gridButtons.add(C9);
 		gridButtons.add(C10);
-		
+
 		D1 = new SpotButton();
 		D2 = new SpotButton();
 		D3 = new SpotButton();
@@ -593,7 +576,7 @@ public class GridButtonPanel extends JPanel
 		D8 = new SpotButton();
 		D9 = new SpotButton();
 		D10 = new SpotButton();
-		
+
 		gridButtons.add(D1);
 		gridButtons.add(D2);
 		gridButtons.add(D3);
@@ -605,7 +588,7 @@ public class GridButtonPanel extends JPanel
 		gridButtons.add(D8);
 		gridButtons.add(D9);
 		gridButtons.add(D10);
-		
+
 		E1 = new SpotButton();
 		E2 = new SpotButton();
 		E3 = new SpotButton();
@@ -616,7 +599,7 @@ public class GridButtonPanel extends JPanel
 		E8 = new SpotButton();
 		E9 = new SpotButton();
 		E10 = new SpotButton();
-		
+
 		gridButtons.add(E1);
 		gridButtons.add(E2);
 		gridButtons.add(E3);
@@ -628,19 +611,17 @@ public class GridButtonPanel extends JPanel
 		gridButtons.add(E8);
 		gridButtons.add(E9);
 		gridButtons.add(E10);
-		
-		
+
 	}
-	
-	private Image getScaledImage(Image srcImg, int w, int h)
-	{
-	    BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-	    Graphics2D g2 = resizedImg.createGraphics();
 
-	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	    g2.drawImage(srcImg, 0, 0, w, h, null);
-	    g2.dispose();
+	private Image getScaledImage(Image srcImg, int w, int h) {
+		BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = resizedImg.createGraphics();
 
-	    return resizedImg;
+		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		g2.drawImage(srcImg, 0, 0, w, h, null);
+		g2.dispose();
+
+		return resizedImg;
 	}
 }

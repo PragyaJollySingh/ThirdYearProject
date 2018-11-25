@@ -138,7 +138,7 @@ public class MainFrame extends JFrame {
 						JOptionPane.showMessageDialog(null, clickedSpot.toString());
 
 						if (!clickedSpot.isFilled()) {
-							String[] options = new String[] { "Sunflower","Double Sunflower","Pea shooter" };
+							String[] options = new String[] { "Sunflower", "Double Sunflower", "Pea shooter" };
 							int response = JOptionPane.showOptionDialog(null, "Choose plant for spot",
 									"Plant Selection", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
 									options, options[0]);
@@ -168,16 +168,15 @@ public class MainFrame extends JFrame {
 								}
 
 							} else if (response == 1) {
-								if(controller.getCurrentPlayer().getSunAmount()>=100){
+								if (controller.getCurrentPlayer().getSunAmount() >= 100) {
 									buttonClicked.addDSunflower();
-									int clickedId=buttonClicked.getSpotButtonID();
+									int clickedId = buttonClicked.getSpotButtonID();
 
 									controller.spotAt(clickedId).setFilled(true);
-									controller.spotAt(clickedId)
-											.setSpotDSunflower(new Doublesunflower(controller.spotAt(clickedId).getSpotId(),
-													controller.spotAt(clickedId).getxCord(),
-													controller.spotAt(clickedId).getyCord(),
-													controller.getCurrentPlayer()));
+									controller.spotAt(clickedId).setSpotDSunflower(new Doublesunflower(
+											controller.spotAt(clickedId).getSpotId(),
+											controller.spotAt(clickedId).getxCord(),
+											controller.spotAt(clickedId).getyCord(), controller.getCurrentPlayer()));
 									controller.spotAt(clickedId).setHasDSunflower(true);
 									controller.getCurrentPlayer()
 											.setSunAmount(controller.getCurrentPlayer().getSunAmount() - 100);
@@ -190,8 +189,7 @@ public class MainFrame extends JFrame {
 								} else {
 									JOptionPane.showMessageDialog(null, "Not enough sun to purchase");
 								}
-							}
-							else if(response==2){
+							} else if (response == 2) {
 								if (controller.getCurrentPlayer().getSunAmount() >= 100) {
 									buttonClicked.addPeashooter();
 									int clickedId = buttonClicked.getSpotButtonID();
@@ -218,10 +216,9 @@ public class MainFrame extends JFrame {
 						}
 					}
 				});
+			}
+		}
 	}
-}
-}
-		
 
 	public void updateZombies() {
 		for (SpotButton sb : gridButtonPanel.getGridButtons()) {
