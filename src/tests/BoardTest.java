@@ -3,10 +3,13 @@
  * Test class for testing Board's methods (other than setters and getters)
  */
 
-package model;
+package tests;
 
 import java.util.ArrayList;
 import junit.framework.TestCase;
+import model.Board;
+import model.Player;
+import model.Spot;
 
 public class BoardTest extends TestCase {
 
