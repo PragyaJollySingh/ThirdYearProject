@@ -140,7 +140,7 @@ public class MainFrame extends JFrame {
 						JOptionPane.showMessageDialog(null, clickedSpot.toString());
 
 						if (!clickedSpot.isFilled()) {
-							String[] options = new String[] { "Sunflower", "Double Sunflower", "Pea shooter" };
+							String[] options = new String[] { "Sunflower", "Double Sunflower", "Pea shooter","Potatoe" };
 							int response = JOptionPane.showOptionDialog(null, "Choose plant for spot",
 									"Plant Selection", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
 									options, options[0]);
