@@ -8,9 +8,11 @@ public class Spot
 	private int xCord;
 	private int yCord;
 	private boolean filled;
+	private boolean hasDSunflower;
 	private boolean hasSunflower;
 	private boolean hasPea;
 	private boolean hasZombie;
+	private Doublesunflower spotDSunflower;
 	private Sunflower spotSunflower;
 	private PeaShooter spotPeaShooter;
 	private CopyOnWriteArrayList<Zombie> spotZombies;
@@ -22,10 +24,20 @@ public class Spot
 		this.yCord = yCord; 
 		this.filled = filled; 
 		this.hasSunflower = false;
+		this.hasDSunflower= false;
 		this.hasPea = false;
 		this.spotPeaShooter = null;
 		this.spotSunflower = null;
+		this.spotDSunflower=null;
 		spotZombies = new CopyOnWriteArrayList<Zombie>();
+	}
+
+	public boolean isHasDSunflower(){
+		return hasDSunflower;
+	}
+
+	public void setHasDSunflower(boolean hasDSunflower){
+		this.hasDSunflower=hasDSunflower;
 	}
 	
 	public boolean isHasSunflower() {
@@ -50,6 +62,12 @@ public class Spot
 
 	public void setSpotSunflower(Sunflower spotSunflower) {
 		this.spotSunflower = spotSunflower;
+	}
+	public Doublesunflower getSpotDSunflower(){
+		return spotDSunflower;
+	}
+	public void setSpotDSunflower(Doublesunflower spotDSunflower){
+		this.spotDSunflower=spotDSunflower;
 	}
 
 	public PeaShooter getSpotPeaShooter() {
@@ -119,6 +137,10 @@ public class Spot
 			this.spotSunflower = null;
 			this.hasSunflower  = false;
 		}
+		else if(this.hasDSunflower){
+			this.spotDSunflower=null;
+			this.hasDSunflower=false;
+		}
 		else 
 		{
 			this.spotPeaShooter = null;
@@ -159,6 +181,7 @@ public class Spot
 				"Is Filled: " + String.valueOf(filled)+ "\n" +
 				"Has a PeaShooter: " + String.valueOf(hasPea)+ "\n" +
 				"Has a Sunflower: " + String.valueOf(hasSunflower)+ "\n" +
+				"Has a DoubleSunflower"+String.valueOf(hasDSunflower)+"\n"+
 				"Has at least one Zombie: " + String.valueOf(hasZombie)+ "\n" +
 				"Number of Zombies: " + Integer.toString(spotZombies.size());
 		

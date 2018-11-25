@@ -20,6 +20,9 @@ public class Player
 	{
 		sunAmount += 10; 
 	}
+	public void addDSun(){
+		sunAmount+=20;
+	}
 
 	public int getSunAmount() {
 		return sunAmount;

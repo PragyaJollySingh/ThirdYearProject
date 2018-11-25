@@ -171,6 +171,20 @@ public class Zombie
 				}
 				
 			}
+			if(currentSpot.isHasDSunflower()){
+				int currentHealth= currentSpot.getSpotDSunflower().getHealth();
+				turnDescriptionZombie+= " Double Sunflower current health: "+String.valueOf(currentHealth)+"\n"+"Zombie attacks the double sunflower at SpotId: "
+										+String.valueOf(currentSpot.getSpotId())+ "\n";
+				currentSpot.getSpotDSunflower().setHealth(currentHealth-attackDamage);;
+				turnDescriptionZombie +="Double sunflower lost"+ String.valueOf(attackDamage)+ " Current health: " + String.valueOf(currentHealth-attackDamage) +"\n";
+
+				if(currentSpot.getSpotDSunflower().getHealth() <=0){
+					currentSpot.getSpotDSunflower().setAlive(false);
+					currentSpot.setHasDSunflower(false);
+					currentSpot.setFilled(false);
+					turnDescriptionZombie+= "Zombie killed the double sunflower at spotID : "+String.valueOf(currentSpot.getSpotId());
+				}
+			}
 			else if(currentSpot.isHasPea()) 
 			{
 				int currentHealth = currentSpot.getSpotPeaShooter().getHealth();

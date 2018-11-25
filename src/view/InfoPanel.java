@@ -16,6 +16,7 @@ import controller.Controller;
 public class InfoPanel extends JPanel
 {
 	private JLabel sunflowerCost;
+	private JLabel doublesunflowerCost;
 	private JLabel peaShooterCost;
 	private JLabel currentSunAmountLabel;
 	private JLabel zombieCountLabel;
@@ -40,6 +41,7 @@ public class InfoPanel extends JPanel
 	{
 		
 		sunflowerCost = new JLabel("Sunflower cost: 50 Sun");
+		doublesunflowerCost= new JLabel("Double sunflower cost: 100 Sun");
 		peaShooterCost = new JLabel("Peashooter cost: 100 Sun");
 		zombieCountLabel = new JLabel("Current Zombie Count:");
 		currentSunAmountLabel = new JLabel("Current Sun Amount:");
@@ -92,7 +94,15 @@ public class InfoPanel extends JPanel
 		gc.anchor = GridBagConstraints.LINE_END;
 		gc.insets = new Insets(0,0,0,5);
 		add(sunflowerCost, gc);
-		
+		////////////////////////////////////next row///////////////////////////////////////
+		gc.gridx = 0;
+		gc.gridy = 1;
+		gc.weightx = 1;
+		gc.weighty = 0.1;
+		gc.fill = GridBagConstraints.NONE;
+		gc.anchor = GridBagConstraints.LINE_END;
+		gc.insets = new Insets(0,0,0,5);
+		add(doublesunflowerCost,gc);
 		
 		
 		////////////////////////////////////next row///////////////////////////////////////
@@ -175,8 +185,15 @@ public class InfoPanel extends JPanel
 		return sunflowerCost;
 	}
 
+	public JLabel getdoublesunflowerCost(){
+		return doublesunflowerCost;
+	}
+
 	public void setSunflowerCost(JLabel sunflowerCost) {
 		this.sunflowerCost = sunflowerCost;
+	}
+	public void setdoublesunflowerCost(JLabel doublesunflowerCost){
+		this.doublesunflowerCost=doublesunflowerCost;
 	}
 
 	public JLabel getPeaShooterCost() {
