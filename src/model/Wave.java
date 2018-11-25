@@ -63,10 +63,10 @@ public class Wave {
 					placedSpot.addSpotZombie(newZombie);
 					placedSpot.setHasZombie(true);
 					zombies.add(newZombie);
-					turnDescriptionWave += "Pole Zombie has been place at spotId: "
+					turnDescriptionWave += "Bucket Zombie has been place at spotId: "
 							+ String.valueOf(placedSpot.getSpotId()) + "\n";
 					System.out.println(
-							"Pole Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
+							"Bucket Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
 				}
 			}
 		}
