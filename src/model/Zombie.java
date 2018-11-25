@@ -98,7 +98,7 @@ public class Zombie {
 				}
 
 			}
-			if (currentSpot.isHasDSunflower()) {
+			else if (currentSpot.isHasDSunflower()) {
 				int currentHealth = currentSpot.getSpotDSunflower().getHealth();
 				turnDescriptionZombie += " Double Sunflower current health: " + String.valueOf(currentHealth) + "\n"
 						+ "Zombie attacks the double sunflower at SpotId: " + String.valueOf(currentSpot.getSpotId())
