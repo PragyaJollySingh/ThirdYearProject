@@ -36,7 +36,7 @@ public class BucketZombie extends Zombie {
 				currentSpot.getSpotZombies().remove(this);
 				futureSpot.addSpotZombie(this);
 				futureSpot.setHasZombie(true);
-				turnDescriptionZombie += "Pole Zombie moved from SpotId: " + String.valueOf(currentSpot.getSpotId())
+				turnDescriptionZombie += "Bucket Zombie moved from SpotId: " + String.valueOf(currentSpot.getSpotId())
 						+ " to SpotID: " + String.valueOf(futureSpotId) + "\n";
 				currentSpot = futureSpot;
 
