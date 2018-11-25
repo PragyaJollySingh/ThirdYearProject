@@ -22,6 +22,10 @@ public class PoleZombie extends Zombie {
 
 	public PoleZombie(int health, Spot currentSpot, Board gameBoard) {
 		super(health, currentSpot, gameBoard);
+		this.currentSpot = currentSpot;
+		this.atPlant = false;
+		this.attacking = false;
+		this.gameBoard = gameBoard;
 		this.alive = true;
 		this.jumped = false;
 	}
@@ -35,7 +39,6 @@ public class PoleZombie extends Zombie {
 	}
 
 	public void moveZombie() {
-		turnDescriptionZombie = "\n";
 		if (!currentSpot.isFilled()) {
 			int futureSpotId = currentSpot.getSpotId() - 1;
 			if ((futureSpotId != -1) && (futureSpotId != 9) && (futureSpotId != 19) && (futureSpotId != 29)

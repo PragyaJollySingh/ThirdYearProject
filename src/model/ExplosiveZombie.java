@@ -22,6 +22,10 @@ public class ExplosiveZombie extends Zombie {
 	public ExplosiveZombie(int health, Spot currentSpot, Board gameBoard) { 
 		super(health, currentSpot, gameBoard);	
 		this.alive = true;
+		this.currentSpot = currentSpot;
+		this.atPlant = false;
+		this.attacking = false;
+		this.gameBoard = gameBoard;
 	}
 	
 	/**
@@ -44,7 +48,7 @@ public class ExplosiveZombie extends Zombie {
 			turnDescriptionZombie += "Explosive Zombie killed pea shooter at spotId: "
 					+ String.valueOf(frontSpot.getSpotId());
 		}
-		
+		turnDescriptionZombie += "Zombie has Exploded at spotId: " + String.valueOf(frontSpot.getSpotId());
 		currentSpot.getSpotZombies().remove(this); //Removes zombie from list
 		this.alive = false;		
 	}		
