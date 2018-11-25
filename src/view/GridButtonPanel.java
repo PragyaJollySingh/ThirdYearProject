@@ -21,6 +21,10 @@ import model.SpotButton;
 public class GridButtonPanel extends JPanel
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private SpotButton A1,A2,A3,A4,A5,A6,A7,A8,A9,A10;
 	private SpotButton B1,B2,B3,B4,B5,B6,B7,B8,B9,B10;
 	private SpotButton C1, C2, C3,C4,C5,C6,C7,C8,C9,C10;
