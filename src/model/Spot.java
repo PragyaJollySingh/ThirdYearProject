@@ -13,10 +13,13 @@ public class Spot
 	private boolean hasPea;
 	private boolean hasZombie;
 	private boolean hasPotatoe;
+	private boolean hasEZombie, hasBZombie;
 	private Doublesunflower spotDSunflower;
 	private Sunflower spotSunflower;
 	private PeaShooter spotPeaShooter;
 	private Potatoe spotPotatoe;
+	private BucketZombie spotBZombie;
+	private ExplosiveZombie spotEZombie;
 	private CopyOnWriteArrayList<Zombie> spotZombies;
 	
 	public Spot(int spotId, int xCord, int yCord, boolean filled) 
@@ -28,11 +31,15 @@ public class Spot
 		this.hasSunflower = false;
 		this.hasDSunflower= false;
 		this.hasPea = false;
+		this.hasPotatoe = false;
+		this.hasEZombie = false;
+		this.hasBZombie = false;
 		this.spotPeaShooter = null;
 		this.spotSunflower = null;
 		this.spotDSunflower=null;
 		this.spotPotatoe = null;
-		this.hasPotatoe = false;
+		this.spotBZombie = null;
+		this.spotEZombie = null;
 		spotZombies = new CopyOnWriteArrayList<Zombie>();
 	}
 
@@ -168,6 +175,23 @@ public class Spot
 		this.hasZombie = hasZombie;
 	}
 
+	public boolean isHasEZombie() {
+		return hasEZombie;
+	}
+
+	public void setHasEZombie(boolean hasEZombie) {
+		this.hasEZombie = hasEZombie;
+	}
+
+	public boolean isHasBZombie() {
+		return hasBZombie;
+	}
+
+	public void setHasBZombie(boolean hasBZombie) {
+		this.hasBZombie = hasBZombie;
+	}
+
+	
 	public CopyOnWriteArrayList<Zombie> getSpotZombies() {
 		return spotZombies;
 	}
