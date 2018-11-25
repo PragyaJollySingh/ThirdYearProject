@@ -12,9 +12,11 @@ public class Spot
 	private boolean hasSunflower;
 	private boolean hasPea;
 	private boolean hasZombie;
+	private boolean hasPotatoe;
 	private Doublesunflower spotDSunflower;
 	private Sunflower spotSunflower;
 	private PeaShooter spotPeaShooter;
+	private Potatoe spotPotatoe;
 	private CopyOnWriteArrayList<Zombie> spotZombies;
 	
 	public Spot(int spotId, int xCord, int yCord, boolean filled) 
@@ -29,6 +31,8 @@ public class Spot
 		this.spotPeaShooter = null;
 		this.spotSunflower = null;
 		this.spotDSunflower=null;
+		this.spotPotatoe = null;
+		this.hasPotatoe = false;
 		spotZombies = new CopyOnWriteArrayList<Zombie>();
 	}
 
@@ -185,6 +189,22 @@ public class Spot
 				"Has at least one Zombie: " + String.valueOf(hasZombie)+ "\n" +
 				"Number of Zombies: " + Integer.toString(spotZombies.size());
 		
+	}
+
+	public void setHasPotatoe(boolean hasPotatoe) {
+		this.hasPotatoe = hasPotatoe;		
+	}
+
+	public void setSpotPotatoe(Potatoe SpotPotatoe) {
+		this.spotPotatoe = SpotPotatoe;
+	}
+
+	public boolean isHasPotatoe() {
+		return hasPotatoe;
+	}
+
+	public Potatoe getSpotPotatoe() {
+		return spotPotatoe;
 	}
 	
 	

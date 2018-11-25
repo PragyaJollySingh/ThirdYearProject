@@ -95,4 +95,17 @@ public class SpotButton extends JButton
 			System.out.println(ex);
 		}
 	}	
+	
+	public void addPotatoe() 
+	{
+		try {
+			ImageIcon peashooterIcon = new ImageIcon("resources/potatoe.png");
+			Image peashooterImage = peashooterIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(peashooterImage));
+			//Image won't lose colour when button is disabled
+			setDisabledIcon(new ImageIcon(peashooterImage));
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
 }

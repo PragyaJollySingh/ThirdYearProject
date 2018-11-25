@@ -209,6 +209,30 @@ public class MainFrame extends JFrame {
 								} else {
 									JOptionPane.showMessageDialog(null, "Not enough sun to purchase!");
 								}
+							}//Potatoe Selected
+							else if(response==3) {
+								if (controller.getCurrentPlayer().getSunAmount() >= Potatoe.COST) {
+									buttonClicked.addPotatoe();
+									int clickedId = buttonClicked.getSpotButtonID();
+
+									controller.spotAt(clickedId).setHasPotatoe(true);
+									controller.spotAt(clickedId).setFilled(true);
+									controller.spotAt(clickedId)
+									.setSpotPotatoe(new Potatoe(controller.spotAt(clickedId).getSpotId(),
+											controller.spotAt(clickedId).getxCord(),
+											controller.spotAt(clickedId).getyCord(),
+											controller.getCurrentPlayer()));
+									controller.getCurrentPlayer()
+											.setSunAmount(controller.getCurrentPlayer().getSunAmount() - Potatoe.COST);
+									updateCurrentSunAmount();
+									infoPanel.getTurnDescription().setText("Potatoe placed at spotId: "
+											+ String.valueOf(controller.spotAt(clickedId).getSpotId()) + "\n");
+									for (SpotButton sb : gridButtonPanel.getGridButtons()) {
+										sb.setEnabled(false);
+									}
+								} else {
+									JOptionPane.showMessageDialog(null, "Not enough sun to purchase!");
+								}
 							}
 						}
 					}
