@@ -1,0 +1,74 @@
+package tests;
+
+import junit.framework.TestCase;
+import view.*;
+
+public class GridButtonPanelTest extends TestCase {
+
+	private GridButtonPanel panel;
+	
+	
+	protected void setUp() {
+		panel = new GridButtonPanel();
+	}
+	
+	protected void tearDown() {
+		panel = null;
+	}
+	
+	public void testNotNull() {
+		assertNotNull(panel.getA1());
+		assertNotNull(panel.getA2());
+		assertNotNull(panel.getA3());
+		assertNotNull(panel.getA4());
+		assertNotNull(panel.getA5());
+		assertNotNull(panel.getA6());
+		assertNotNull(panel.getA7());
+		assertNotNull(panel.getA8());
+		assertNotNull(panel.getA9());
+		assertNotNull(panel.getA10());
+		assertNotNull(panel.getB1());
+		assertNotNull(panel.getB2());
+		assertNotNull(panel.getB3());
+		assertNotNull(panel.getB4());
+		assertNotNull(panel.getB5());
+		assertNotNull(panel.getB6());
+		assertNotNull(panel.getB7());
+		assertNotNull(panel.getB8());
+		assertNotNull(panel.getB9());
+		assertNotNull(panel.getB10());
+		assertNotNull(panel.getC1());
+		assertNotNull(panel.getC2());
+		assertNotNull(panel.getC3());
+		assertNotNull(panel.getC4());
+		assertNotNull(panel.getC5());
+		assertNotNull(panel.getC6());
+		assertNotNull(panel.getC7());
+		assertNotNull(panel.getC8());
+		assertNotNull(panel.getC9());
+		assertNotNull(panel.getC10());
+		assertNotNull(panel.getD1());
+		assertNotNull(panel.getD2());
+		assertNotNull(panel.getD3());
+		assertNotNull(panel.getD4());
+		assertNotNull(panel.getD5());
+		assertNotNull(panel.getD6());
+		assertNotNull(panel.getD7());
+		assertNotNull(panel.getD8());
+		assertNotNull(panel.getD9());
+		assertNotNull(panel.getD10());
+		assertNotNull(panel.getE1());
+		assertNotNull(panel.getE2());
+		assertNotNull(panel.getE3());
+		assertNotNull(panel.getE4());
+		assertNotNull(panel.getE5());
+		assertNotNull(panel.getE6());
+		assertNotNull(panel.getE7());
+		assertNotNull(panel.getE8());
+		assertNotNull(panel.getE9());
+		assertNotNull(panel.getE10());
+		assertNotNull(panel.getGridButtons());
+		assertNotNull(panel.getController());
+	}
+	
+}

@@ -1,0 +1,9 @@
+package tests;
+
+import junit.framework.TestCase;
+import view.MainFrame;
+
+public class MainFrameTest extends TestCase {
+
+	MainFrame frame = new MainFrame();
+}

@@ -1,0 +1,34 @@
+/**
+ * @author johanwesteinde
+ * Test class ensuring all elements get set in InfoPanel class
+ */
+package tests;
+
+import junit.framework.TestCase;
+import view.InfoPanel;
+
+public class InfoPanelTest extends TestCase{
+
+private InfoPanel panel;
+	
+	
+	protected void setUp() {
+		panel = new InfoPanel();
+	}
+	
+	protected void tearDown() {
+		panel = null;
+	}
+	
+	public void testNotNull() {
+		assertNotNull(panel.getSunflowerCost());
+		assertNotNull(panel.getdoublesunflowerCost());
+		assertNotNull(panel.getPeaShooterCost());
+		assertNotNull(panel.getCurrentSunAmountLabel());
+		assertNotNull(panel.getZombieCountLabel());
+		assertNotNull(panel.getWavesRemainingLabel());
+		assertNotNull(panel.getTurnDescriptionLabel());
+		
+		assertNotNull(panel.getCurrentSunAmountTextArea()
+	}
+}

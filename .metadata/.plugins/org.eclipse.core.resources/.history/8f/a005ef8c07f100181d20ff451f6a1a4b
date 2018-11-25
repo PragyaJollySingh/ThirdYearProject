@@ -1,0 +1,9 @@
+package tests;
+
+import junit.framework.TestCase;
+import model.*;
+
+public class DoubleSunflowerTest extends TestCase {
+
+	
+}

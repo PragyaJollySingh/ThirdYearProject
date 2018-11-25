@@ -1,0 +1,22 @@
+package tests;
+
+import junit.framework.TestCase;
+import view.InfoPanel;
+import view.MainFrame;
+
+public class MainFrameTest extends TestCase {
+
+	MainFrame frame = new MainFrame();
+	
+	//set up a new InfoPanel
+		protected void setUp() {
+			frame = new MainFrame();
+		}
+		
+		protected void tearDown() {
+			frame = null;
+		}
+		
+		//ensure that all elements on the InfoPanel are not null
+		public void testNotNull() {
+}

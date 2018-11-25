@@ -1,0 +1,10 @@
+package tests;
+
+import junit.framework.TestCase;
+import view.*;
+
+public class GridButtonPanelTest extends TestCase {
+
+	private GridButtonPanel panel;
+	
+}
