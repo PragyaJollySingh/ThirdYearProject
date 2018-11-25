@@ -125,6 +125,8 @@ public class Controller {
 					turnDescription += s.getSpotDSunflower().getTurnDescriptionDSunflower();
 				} else if (s.isHasPea()) {
 					turnDescription += s.getSpotPeaShooter().getPeaShooterTurnDescription();
+				}else if (s.isHasPotatoe()) {
+					turnDescription += s.getSpotPotatoe().getTurnDescriptionPotatoe();
 				}
 			}
 		}

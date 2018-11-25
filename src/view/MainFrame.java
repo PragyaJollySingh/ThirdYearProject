@@ -34,9 +34,14 @@ public class MainFrame extends JFrame {
 				infoPanel.getZombieCount().setText(String.valueOf(controller.getZombieCount()));
 				for (SpotButton sb : gridButtons) {
 					if (controller.spotAt(sb.getSpotButtonID()).isHasZombie()) {
-
 						sb.addZombie();
+					} else if (controller.spotAt(sb.getSpotButtonID()).isHasEZombie()) {
+						sb.addExplodeZombie();
+					} else if (controller.spotAt(sb.getSpotButtonID()).isHasBZombie()) {
+						sb.addBucketZombie();
 					}
+
+					// if(controller.spotAt(sb.getSpotButtonID()).is)
 				}
 				infoPanel.getStartLevelButton().setEnabled(false);
 				infoPanel.getTurnDescription().setText(controller.getWave().getTurnDescriptionWave());
@@ -135,7 +140,7 @@ public class MainFrame extends JFrame {
 						JOptionPane.showMessageDialog(null, clickedSpot.toString());
 
 						if (!clickedSpot.isFilled()) {
-							String[] options = new String[] { "Sunflower", "Double Sunflower", "Pea shooter" };
+							String[] options = new String[] { "Sunflower", "Double Sunflower", "Pea shooter","Potatoe" };
 							int response = JOptionPane.showOptionDialog(null, "Choose plant for spot",
 									"Plant Selection", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
 									options, options[0]);
@@ -210,6 +215,31 @@ public class MainFrame extends JFrame {
 									JOptionPane.showMessageDialog(null, "Not enough sun to purchase!");
 								}
 							}
+							// Potatoe Selected
+							else if (response == 3) {
+								if (controller.getCurrentPlayer().getSunAmount() >= Potatoe.COST) {
+									buttonClicked.addPotatoe();
+									int clickedId = buttonClicked.getSpotButtonID();
+
+									controller.spotAt(clickedId).setHasPotatoe(true);
+									controller.spotAt(clickedId).setFilled(true);
+									controller.spotAt(clickedId)
+											.setSpotPotatoe(new Potatoe(controller.spotAt(clickedId).getSpotId(),
+													controller.spotAt(clickedId).getxCord(),
+													controller.spotAt(clickedId).getyCord(),
+													controller.getCurrentPlayer()));
+									controller.getCurrentPlayer()
+											.setSunAmount(controller.getCurrentPlayer().getSunAmount() - Potatoe.COST);
+									updateCurrentSunAmount();
+									infoPanel.getTurnDescription().setText("Potatoe placed at spotId: "
+											+ String.valueOf(controller.spotAt(clickedId).getSpotId()) + "\n");
+									for (SpotButton sb : gridButtonPanel.getGridButtons()) {
+										sb.setEnabled(false);
+									}
+								} else {
+									JOptionPane.showMessageDialog(null, "Not enough sun to purchase!");
+								}
+							}
 						}
 					}
 				});
@@ -225,6 +255,12 @@ public class MainFrame extends JFrame {
 						if (s.isHasZombie()) {
 
 							sb.addZombie();
+						}
+						if(s.isHasBZombie()) {
+							sb.addBucketZombie();
+						}
+						if(s.isHasEZombie()) {
+							sb.addExplodeZombie();
 						}
 						if (s.getSpotZombies().size() == 0) {
 							sb.setIcon(null);

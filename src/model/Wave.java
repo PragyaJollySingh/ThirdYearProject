@@ -47,7 +47,7 @@ public class Wave {
 				Spot placedSpot = gameBoard.spotAt(placeableSpotIds.get(random));
 				if ((newZombie != null) && (placedSpot != null)) {
 					placedSpot.addSpotZombie(newZombie);
-					placedSpot.setHasZombie(true);
+					placedSpot.setHasEZombie(true);
 					zombies.add(newZombie);
 					turnDescriptionWave += "Explosive Zombie has been place at spotId: "
 							+ String.valueOf(placedSpot.getSpotId()) + "\n";
@@ -61,12 +61,12 @@ public class Wave {
 				Spot placedSpot = gameBoard.spotAt(placeableSpotIds.get(random));
 				if ((newZombie != null) && (placedSpot != null)) {
 					placedSpot.addSpotZombie(newZombie);
-					placedSpot.setHasZombie(true);
+					placedSpot.setHasBZombie(true);
 					zombies.add(newZombie);
-					turnDescriptionWave += "Pole Zombie has been place at spotId: "
+					turnDescriptionWave += "Bucket Zombie has been place at spotId: "
 							+ String.valueOf(placedSpot.getSpotId()) + "\n";
 					System.out.println(
-							"Pole Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
+							"Bucket Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
 				}
 			}
 		}
