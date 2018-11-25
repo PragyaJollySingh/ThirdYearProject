@@ -67,7 +67,7 @@ public class MainFrame extends JFrame {
 		setJMenuBar(createMenuBar());
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1000, 900);
+		setSize(1000, 700);
 	}
 
 	public InfoPanel getInfoPanel() {
