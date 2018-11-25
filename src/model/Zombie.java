@@ -58,61 +58,6 @@ public class Zombie {
 		this.alive = alive;
 	}
 
-	/*public void move() {
-		if (!currentSpot.isFilled()) {
-			int futureX = currentSpot.getxCord() - 1;
-			if (futureX == 0) {
-				gameBoard.getPlayer().die();
-				System.out.println("Zombie has eaten your brains: GAME OVER\n");
-				System.exit(0);
-			}
-
-			currentSpot.getSpotZombies().remove(0);
-			currentSpot.setHasZombie(false);
-
-			gameBoard.spotAt(futureX, currentSpot.getyCord()).addSpotZombie(this);
-			gameBoard.spotAt(futureX, currentSpot.getyCord()).setHasZombie(true);
-
-			this.currentSpot = gameBoard.spotAt(futureX, currentSpot.getyCord());
-			System.out.print("A Zombie has moved to spot x: " + Integer.toString(futureX) + " y: "
-					+ Integer.toString(currentSpot.getyCord()) + "\n");
-		} else {
-			this.attacking = true;
-			if (currentSpot.isHasSunflower()) {
-				int currentHealth = currentSpot.getSpotSunflower().getHealth();
-				currentSpot.getSpotSunflower().setHealth(currentHealth - attackDamage);
-				System.out.println("A Zombie has attacked Sunflower at x: " + Integer.toString(currentSpot.getxCord())
-						+ " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
-				System.out.println("Sunflower Current Health: "
-						+ Integer.toString(currentSpot.getSpotSunflower().getHealth()) + "\n");
-
-				if (currentSpot.getSpotSunflower().getHealth() <= 0) {
-					currentSpot.getSpotSunflower().setAlive(false);
-					currentSpot.setHasSunflower(false);
-					currentSpot.setFilled(false);
-					System.out.println("A Zombie has killed Sunflower at x: " + Integer.toString(currentSpot.getxCord())
-							+ " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
-				}
-			} else {
-				int currentHealth = currentSpot.getSpotPeaShooter().getHealth();
-				currentSpot.getSpotPeaShooter().setHealth(currentHealth - attackDamage);
-				System.out.println("A Zombie has attacked PeaShooter at x: " + Integer.toString(currentSpot.getxCord())
-						+ " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
-				System.out.println("PeaShooter Current Health: "
-						+ Integer.toString(currentSpot.getSpotPeaShooter().getHealth()) + "\n");
-
-				if (currentSpot.getSpotPeaShooter().getHealth() <= 0) {
-					currentSpot.getSpotPeaShooter().setAlive(false);
-					currentSpot.setSpotPeaShooter(null);
-					currentSpot.setHasPea(false);
-					System.out.println(
-							"A Zombie has killed a PeaShooter at x: " + Integer.toString(currentSpot.getxCord())
-									+ " y: " + Integer.toString(currentSpot.getyCord()) + "\n");
-				}
-			}
-		}
-	}*/
-
 	public void moveZombie() {
 		turnDescriptionZombie = "\n";
 		if (!currentSpot.isFilled()) {
