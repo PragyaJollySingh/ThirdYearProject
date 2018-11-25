@@ -69,9 +69,15 @@ public class PoleZombie extends Zombie {
 						&& (futureSpotId != 39)) {
 					Spot futureSpot = gameBoard.spotAt(futureSpotId);
 					currentSpot.getSpotZombies().remove(this);
+					futureSpot.addSpotZombie(this);
+					futureSpot.setHasZombie(true);
 					turnDescriptionZombie += "Pole Zombie moved from SpotId: " + String.valueOf(currentSpot.getSpotId())
 							+ " to SpotID: " + String.valueOf(futureSpotId) + "\n";
 					currentSpot = futureSpot;
+				}else if (futureSpotId == -1 || futureSpotId == 9 || futureSpotId == 19 || futureSpotId == 29
+						|| futureSpotId == 39) {
+					System.out.println("You lose Zombie ate your brains");
+					gameBoard.setGameOver();
 				}
 				jumped = true;
 			}
