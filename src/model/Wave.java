@@ -55,9 +55,9 @@ public class Wave {
 							"Explosive Zombie has been placed at spotId: " + String.valueOf(placedSpot.getSpotId()));
 				}
 			}
-			// Makes 1 pole zombie
+			// Makes 1 bucket zombie
 			else if (i == numberOfZombies - 1) {
-				Zombie newZombie = new PoleZombie(100, gameBoard.spotAt(placeableSpotIds.get(random)), gameBoard);
+				Zombie newZombie = new BucketZombie(250, gameBoard.spotAt(placeableSpotIds.get(random)), gameBoard);
 				Spot placedSpot = gameBoard.spotAt(placeableSpotIds.get(random));
 				if ((newZombie != null) && (placedSpot != null)) {
 					placedSpot.addSpotZombie(newZombie);
