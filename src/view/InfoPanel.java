@@ -37,7 +37,7 @@ public class InfoPanel extends JPanel
 	private Controller controller;
 	
 	
-	 InfoPanel() 
+	 InfoPanel() // Sets up the general layout of the info panel 
 	{
 		
 		sunflowerCost = new JLabel("Sunflower cost: 50 Sun");
@@ -80,7 +80,7 @@ public class InfoPanel extends JPanel
 		layoutComponents();		
 	}
 	 
-	 public void layoutComponents() 
+	 public void layoutComponents() // Sets up the layout row by row for the placements of each of the componants
 	 {
 		 setLayout(new GridBagLayout());
 		 GridBagConstraints gc = new GridBagConstraints();
