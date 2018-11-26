@@ -15,6 +15,8 @@ public class Spot
 	private PeaShooter spotPeaShooter;
 	private CopyOnWriteArrayList<Zombie> spotZombies;
 	
+	// The spot is the location of where things could possible be, this holds the location and if it's filled with a certain zombie and or plant
+	
 	public Spot(int spotId, int xCord, int yCord, boolean filled) 
 	{
 		this.spotId = spotId;
@@ -150,7 +152,7 @@ public class Spot
 	{
 		this.spotZombies = spotZombies;
 	}
-	
+	// This is used so that when you hover over a spot the information is given there 
 	public String toString() 
 	{
 		return "Spot ID: " + Integer.toString(spotId) + "\n" +
