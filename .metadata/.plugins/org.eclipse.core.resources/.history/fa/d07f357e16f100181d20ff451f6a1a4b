@@ -25,4 +25,13 @@ public class MainFrameTest extends TestCase {
 		assertNotNull(frame.getInfoPanel());
 		assertNotNull(frame.getGridButtonPanel());
 	}
+	
+	//update the sun amount and ensure the frame updates it as well
+	public void testUpdateSunAmount() {
+		
+	}
+	
+	public void testUpdateTurnDescription() {
+		
+	}
 }
