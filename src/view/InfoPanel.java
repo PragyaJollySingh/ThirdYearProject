@@ -33,6 +33,7 @@ public class InfoPanel extends JPanel
 	private JLabel turnOverLabel;
 	private JButton nextTurnButton;
 	private JButton startLevelButton;
+	private JButton UndoButton;
 	private Controller controller;
 	
 	
@@ -45,6 +46,7 @@ public class InfoPanel extends JPanel
 		currentSunAmountLabel = new JLabel("Current Sun Amount:");
 		wavesRemainingLabel = new JLabel("Zombie waves remaining: ");
 		turnDescriptionLabel = new JLabel("Turn Description: ");
+		UndoButton= new JButton("Undo");
 		
 		
 		wavesRemaining = new JTextArea(2,10);
@@ -169,6 +171,15 @@ public class InfoPanel extends JPanel
 		gc.anchor = GridBagConstraints.LINE_END;
 		gc.insets = new Insets(0,0,0,5);
 		add(nextTurnButton, gc);
+		
+		////////////////////////////////////next row///////////////////////////////////////
+		gc.gridy++;
+		gc.gridx = 0;
+		gc.weightx = 1;
+		gc.weighty = 0.1;
+		gc.anchor = GridBagConstraints.LINE_END;
+		gc.insets = new Insets(0,0,0,5);
+		add(UndoButton, gc);
 	 }
 
 	public JLabel getSunflowerCost() {
