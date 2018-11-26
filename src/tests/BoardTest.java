@@ -7,9 +7,7 @@ package tests;
 
 import java.util.ArrayList;
 import junit.framework.TestCase;
-import model.Board;
-import model.Player;
-import model.Spot;
+import model.*;
 
 public class BoardTest extends TestCase {
 

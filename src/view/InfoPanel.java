@@ -34,12 +34,13 @@ public class InfoPanel extends JPanel
 	private JLabel turnOverLabel;
 	private JButton nextTurnButton;
 	private JButton startLevelButton;
+	private JButton UndoButton;
 	private Controller controller;
 	
 	
-	 InfoPanel() 
+	 public InfoPanel() 
 	{
-		
+		UndoButton= new JButton("Undo");
 		sunflowerCost = new JLabel("Sunflower cost: 50 Sun");
 		doublesunflowerCost= new JLabel("Double sunflower cost: 100 Sun");
 		peaShooterCost = new JLabel("Peashooter cost: 100 Sun");
@@ -179,6 +180,17 @@ public class InfoPanel extends JPanel
 		gc.anchor = GridBagConstraints.LINE_END;
 		gc.insets = new Insets(0,0,0,5);
 		add(nextTurnButton, gc);
+		
+		/////////////////////////////////next row////////////////////////////////////////////#
+		
+		gc.gridy++;
+		gc.gridx=0;
+		gc.weightx = 1;
+		gc.weighty = 0.1;
+		gc.anchor = GridBagConstraints.LINE_END;
+		gc.insets = new Insets(0,0,0,5);
+		add(UndoButton, gc);
+		
 	 }
 
 	public JLabel getSunflowerCost() {

@@ -1,30 +1,27 @@
 /**
  * @author johanwesteinde
- * Test class for testing Zombie's methods (other than setters and getters)
+ * Test class for testing BucketZombie's methods (other than setters and getters)
  */
 
 package tests;
 
 import junit.framework.TestCase;
-import model.Board;
-import model.PeaShooter;
-import model.Player;
-import model.Spot;
-import model.Wave;
-import model.Zombie;
+import model.*;
 
 public class ZombieTest extends TestCase {
 
 	private Player player;
 	private Board board;
 	private Wave wave;
+	private Spot spot;
 	private Zombie zombie;
 	
 	protected void setUp() {
 		player = new Player(200);
 		board = new Board(player);
 		wave = new Wave(1, board);
-		zombie = wave.getZombies().get(0);
+		spot = new Spot(9, 9, 0, false);
+		zombie = new Zombie(100, spot, board);
 	}
 	
 	protected void tearDown() {
@@ -34,19 +31,12 @@ public class ZombieTest extends TestCase {
 		zombie = null;
 	}
 	
-	public void testMoveZombieWithNoDamage() {
-		int startSpotId = zombie.getCurrentSpot().getSpotId();
-
-		//move the zombie and make sure its current spot gets updated correctly
+	public void testMoveZombie() {
+		int currentSpotId = zombie.getCurrentSpot().getSpotId();
 		zombie.moveZombie();
-		assertEquals(zombie.getCurrentSpot().getSpotId(), startSpotId - 1);
-		
-		zombie.moveZombie();
-		assertEquals(zombie.getCurrentSpot().getSpotId(), startSpotId - 2);
-		
-		//set zombie spot back to xcord = 9
-		Spot startSpot = new Spot(startSpotId, Board.xSize - 1, zombie.getCurrentSpot().getyCord(), false);
-		zombie.setCurrentSpot(startSpot);
+		assertEquals(currentSpotId - 1, zombie.getCurrentSpot().getSpotId());
+		//set zombie back to original spot
+		zombie.setCurrentSpot(new Spot(9, 9, 0, false));
 	}
 	
 	public void testMoveZombieWithDamage() {
