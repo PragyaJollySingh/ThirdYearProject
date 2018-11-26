@@ -13,6 +13,7 @@ public class PeaShooter extends Plant
 	private Wave wave;
 	private String peaShooterTurnDescription = "";
 	
+	// This sets up the pea shooter while keeping track of it's health or damage)
 	public PeaShooter( int xCordinate, int yCordinate, int attackDamage, Spot spotPlaced, Board gameBoard, Wave wave) 
 	{
 		super(100, 100);
