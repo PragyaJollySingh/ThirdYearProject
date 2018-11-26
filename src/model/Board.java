@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Board 
+public class Board // Initializes the board so that you are able to have grid buttons, specific spots, players and so on. 
 {
 	protected static int xSize = 10;
 	protected static int ySize = 5;
