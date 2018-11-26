@@ -1,0 +1,50 @@
+/**
+ * @author johanwesteinde
+ * Test class for testing BucketZombie's methods (other than setters and getters)
+ */
+
+package tests;
+
+import junit.framework.TestCase;
+import model.Board;
+import model.PeaShooter;
+import model.Player;
+import model.Spot;
+import model.Wave;
+import model.Zombie;
+
+public class ZombieTest extends TestCase {
+
+	private Player player;
+	private Board board;
+	private Wave wave;
+	private Spot spot;
+	private Zombie zombie;
+	
+	protected void setUp() {
+		player = new Player(200);
+		board = new Board(player);
+		wave = new Wave(1, board);
+		spot = new Spot(9, 9, 0, false);
+		zombie = new Zombie(100, spot, board);
+	}
+	
+	protected void tearDown() {
+		player = null;
+		board = null;
+		wave = null;
+		zombie = null;
+	}
+	
+	public void testMoveZombie() {
+		int currentSpotId = zombie.getCurrentSpot().getSpotId();
+		zombie.moveZombie();
+		assertEquals(currentSpotId - 1, zombie.getCurrentSpot().getSpotId());
+		//set zombie back to original spot
+		zombie.setCurrentSpot(new Spot(9, 9, 0, false));
+	}
+	
+	public void testMoveZombieWithFilledNextSpot() {
+		Sunflower sf = new Sunflower()
+	}
+}

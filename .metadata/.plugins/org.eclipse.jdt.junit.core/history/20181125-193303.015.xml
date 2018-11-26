@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ZombieTest" project="src" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="tests.ZombieTest" time="0.0">
+    <testcase name="testMoveZombie" classname="tests.ZombieTest" time="0.0"/>
+    <testcase name="testMoveZombieWithDamage" classname="tests.ZombieTest" time="0.0"/>
+  </testsuite>
+</testrun>

@@ -6,10 +6,7 @@
 package tests;
 
 import junit.framework.TestCase;
-import model.Board;
-import model.Player;
-import model.Wave;
-import model.Zombie;
+import model.*;
 
 public class WaveTest extends TestCase {
 
@@ -40,5 +37,41 @@ public class WaveTest extends TestCase {
 		assertEquals(zombie, wave.getZombies().get(0));
 	}
 	
-	//testing of killing a zombie and its effects on the wave are done in the PeaShooter test class
+	public void testMoveZombieWithNoDamage() {
+		int startSpotId = zombie.getCurrentSpot().getSpotId();
+		
+		//move the zombie and make sure its current spot gets updated correctly
+		zombie.moveZombie();
+		assertEquals(zombie.getCurrentSpot().getSpotId(), startSpotId - 1);
+		
+		zombie.moveZombie();
+		assertEquals(zombie.getCurrentSpot().getSpotId(), startSpotId - 2);
+		
+		//set zombie spot back to xcord = 9
+		Spot startSpot = new Spot(startSpotId, Board.xSize - 1, zombie.getCurrentSpot().getyCord(), false);
+		zombie.setCurrentSpot(startSpot);
+	}
+	
+	
+	public void testMoveZombieWithDamage() {
+		int spotId = zombie.getCurrentSpot().getSpotId();
+		int yspot = zombie.getCurrentSpot().getyCord();
+		
+		//plant a peashooter in the same row as the zombie
+		Spot psSpot = new Spot(yspot*board.getxSize(), 0, yspot, false);
+		PeaShooter ps = new PeaShooter(0, yspot, 50, psSpot, board, wave);
+		
+		//move zombie and attack with peashooter (zombie doesn't die)
+		zombie.moveZombie();
+		assertEquals(zombie.getCurrentSpot().getSpotId(), spotId - 1);
+		ps.attackZombie();
+		assertEquals(50, zombie.getHealth());
+		
+		//move zombie and attack with peashooter (zombie dies)
+		zombie.moveZombie();
+		assertEquals(zombie.getCurrentSpot().getSpotId(), spotId - 2);
+		ps.attackZombie();
+		assertEquals(0, zombie.getHealth());
+		assertFalse(zombie.isAlive());
+	}
 }

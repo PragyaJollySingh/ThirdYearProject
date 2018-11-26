@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ExplosiveZombieTest" project="src" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="tests.ExplosiveZombieTest" time="0.001">
+    <testcase name="testMoveZombieWithNoPlants" classname="tests.ExplosiveZombieTest" time="0.0"/>
+    <testcase name="testMoveZombieWithPlant" classname="tests.ExplosiveZombieTest" time="0.001"/>
+    <testcase name="testGameOver" classname="tests.ExplosiveZombieTest" time="0.0"/>
+  </testsuite>
+</testrun>

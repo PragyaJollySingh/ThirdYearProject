@@ -17,10 +17,9 @@ public class BucketZombie extends Zombie {
 	public final int bucketFactor = 2;
 
 	public BucketZombie(int health, Spot currentSpot, Board gameBoard) {
-		//super(health, currentSpot, gameBoard);
-		super();
+		super(health, currentSpot, gameBoard);
 		this.health = (bucketFactor * health);
-		// this.attackDamage = attackDamage;
+//		this.attackDamage = attackDamage;
 		this.atPlant = false;
 		this.attacking = false;
 		this.currentSpot = currentSpot;
