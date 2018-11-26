@@ -86,7 +86,7 @@ public class MainFrame extends JFrame {
 		this.gridButtonPanel = gridButtonPanel;
 	}
 
-	private JMenuBar createMenuBar() {
+	private JMenuBar createMenuBar() { // Creates the top menu bar so that one is able to save and import and export(Milestone 4)
 		JMenuBar menubar = new JMenuBar();
 		JMenu fileMenu = new JMenu("File");
 		JMenu windowMenu = new JMenu("Window");
@@ -227,7 +227,7 @@ public class MainFrame extends JFrame {
 		infoPanel.getCurrentSunAmountTextArea().setText(String.valueOf(currentSunAmount));
 	}
 
-	public void updateTurnDescription() {
+	public void updateTurnDescription() {// Updates the information in the info panel that tells you what is happening on the board
 		String turnDescription = controller.getTurnDescription();
 
 		infoPanel.getTurnDescription().setText(turnDescription);
