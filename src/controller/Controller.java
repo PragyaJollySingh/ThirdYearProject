@@ -1,22 +1,26 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import model.Board;
+import model.BucketZombie;
+import model.ExplosiveZombie;
 import model.Player;
 import model.Spot;
 import model.Wave;
 import model.Zombie;
+import view.MainFrame;
+import view.WaveInfoPanel;
 
 public class Controller {
 
 	private Player currentPlayer = new Player(300);
 	private Board gameBoard = new Board(currentPlayer);
 	private Wave wave = null;
-	private final int NumZombies = 3;
 
 	public Controller() {
-
+		
 	}
 
 	public void nextTurn() {
@@ -24,14 +28,9 @@ public class Controller {
 			if (s.isHasSunflower()) {
 				s.getSpotSunflower().addSunToPlayer();
 			}
-		}
-		for (Spot s : gameBoard.getGrid()) {
 			if (s.isHasDSunflower()) {
 				s.getSpotDSunflower().addDSunToPlayer();
 			}
-		}
-
-		for (Spot s : gameBoard.getGrid()) {
 			if (s.isHasZombie()) {
 				if (s.getSpotZombies() != null) {
 					for (Zombie z : s.getSpotZombies()) {
@@ -39,9 +38,20 @@ public class Controller {
 					}
 				}
 			}
-		}
-
-		for (Spot s : gameBoard.getGrid()) {
+			if(s.isHasEZombie()) {
+				if(s.getExplosiveZombies() != null) {
+					for(ExplosiveZombie z : s.getExplosiveZombies()) {
+						z.moveZombie();
+					}
+				}
+			}
+			if(s.isHasBZombie()) {
+				if(s.getBucketZombies() != null) {
+					for(BucketZombie z : s.getBucketZombies()) {
+						z.moveZombie();
+					}
+				}
+			}
 			if (s.isHasPea()) {
 				s.getSpotPeaShooter().attackZombie();
 			}
@@ -82,25 +92,19 @@ public class Controller {
 		ArrayList<Integer> spotIds = new ArrayList<Integer>();
 
 		for (Spot s : gameBoard.getGrid()) {
-			if (s.isHasZombie()) {
+			if (s.isHasZombie() || s.isHasBZombie() || s.isHasEZombie()) {
 				spotIds.add(s.getSpotId());
 			}
 		}
 		return spotIds;
 	}
 
-	public void startWave() {
-		wave = new Wave(NumZombies, gameBoard);
+	public void startWave(int normal, int bucket, int explosive) {
+		wave = new Wave(normal, bucket, explosive, gameBoard);
 	}
 
 	public int getZombieCount() {
-		int count = 0;
-		for (Spot s : gameBoard.getGrid()) {
-			if (s.isHasZombie()) {
-				count += s.getSpotZombies().size();
-			}
-		}
-		return count;
+		return wave.getNumberOfZombies();
 	}
 
 	public int getCurrentSunAmount() {

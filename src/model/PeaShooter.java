@@ -58,7 +58,7 @@ public class PeaShooter extends Plant {
 		ArrayList<Spot> attackableZombieSpotsInRow = new ArrayList<Spot>();
 		for (Spot s : gameBoard.getGrid()) {
 			if (s.getyCord() == this.yCordinate && (s.getxCord() >= this.xCordinate)) {
-				if (s.isHasZombie()) {
+				if (s.isHasZombie() || s.isHasBZombie() || s.isHasEZombie()) {
 					attackableZombieSpotsInRow.add(s);
 				}
 			}
@@ -73,7 +73,11 @@ public class PeaShooter extends Plant {
 			}
 		}
 
-		if (!closestSpot.hasNoZombies()) {
+		//if there are no zombies in the peashooters way, do nothing
+		if(closestSpot == null || closestSpot.getFirstZombie() == null) {
+			return;
+		}
+		else {
 			Zombie zombieToAttack = closestSpot.getFirstZombie();
 			int closestSpotId = closestSpot.getSpotId();
 			peaShooterTurnDescription += "Peashooter will attack zombie at spotId: " + String.valueOf(closestSpotId)

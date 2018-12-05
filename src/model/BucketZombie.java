@@ -33,9 +33,10 @@ public class BucketZombie extends Zombie {
 			if ((futureSpotId != -1) && (futureSpotId != 9) && (futureSpotId != 19) && (futureSpotId != 29)
 					&& (futureSpotId != 39)) {
 				Spot futureSpot = gameBoard.spotAt(futureSpotId);
-				currentSpot.getSpotZombies().remove(this);
-				futureSpot.addSpotZombie(this);
-				futureSpot.setHasZombie(true);
+				currentSpot.getBucketZombies().remove(this);
+				currentSpot.setHasBZombie(false);
+				futureSpot.addBucketZombie(this);
+				futureSpot.setHasBZombie(true);
 				turnDescriptionZombie += "Bucket Zombie moved from SpotId: " + String.valueOf(currentSpot.getSpotId())
 						+ " to SpotID: " + String.valueOf(futureSpotId) + "\n";
 				currentSpot = futureSpot;

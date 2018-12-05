@@ -20,7 +20,7 @@ public class WaveTest extends TestCase {
 		//create a new 5X10 board and create a new wave with one zombie
 		player = new Player(200);
 		board = new Board(player);
-		wave = new Wave(1, board);
+		wave = new Wave(1, 0, 0, board);
 		zombie = wave.getZombies().get(0);
 	}
 	

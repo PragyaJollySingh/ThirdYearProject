@@ -13,12 +13,28 @@ public class MainFrame extends JFrame {
 	private InfoPanel infoPanel;
 	private GridButtonPanel gridButtonPanel;
 	private Controller controller;
+	private int currentLevel;
 
-	public MainFrame() {
+	public MainFrame(int normal, int bucket, int explosive) {
 		super("Plants vs. Zombies");
+
 		controller = new Controller();
 		gridButtonPanel = new GridButtonPanel();
 		infoPanel = new InfoPanel();
+		
+		makeSpotButtonsFunctional();
+		setLayout(new BorderLayout());
+
+		add(gridButtonPanel, BorderLayout.EAST);
+		add(infoPanel, BorderLayout.WEST);
+		setJMenuBar(createMenuBar());
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(1200, 700);
+		
+		infoPanel.getStartLevelButton().setEnabled(true);
+		infoPanel.getNextTurnButton().setEnabled(false);
+		infoPanel.getUndoButton().setEnabled(false);
 
 		infoPanel.getStartLevelButton().addActionListener(new ActionListener() {
 
@@ -27,7 +43,7 @@ public class MainFrame extends JFrame {
 				gridButtonPanel.enableGridButtons();
 				infoPanel.getCurrentSunAmountTextArea()
 						.setText(Integer.toString(controller.getCurrentPlayer().getSunAmount()));
-				controller.startWave();
+				controller.startWave(normal, bucket, explosive);
 				ArrayList<Integer> zombieSpotIds = new ArrayList<Integer>();
 				ArrayList<SpotButton> gridButtons = new ArrayList<SpotButton>();
 				gridButtons = gridButtonPanel.getGridButtons();
@@ -40,11 +56,11 @@ public class MainFrame extends JFrame {
 					} else if (controller.spotAt(sb.getSpotButtonID()).isHasBZombie()) {
 						sb.addBucketZombie();
 					}
-
-					// if(controller.spotAt(sb.getSpotButtonID()).is)
 				}
 				infoPanel.getStartLevelButton().setEnabled(false);
 				infoPanel.getTurnDescription().setText(controller.getWave().getTurnDescriptionWave());
+				infoPanel.getNextTurnButton().setEnabled(true);
+				infoPanel.getUndoButton().setEnabled(true);
 
 			}
 
@@ -63,16 +79,13 @@ public class MainFrame extends JFrame {
 				gridButtonPanel.enableGridButtons();
 			}
 		});
+	}
 
-		makeSpotButtonsFunctional();
-		setLayout(new BorderLayout());
-
-		add(gridButtonPanel, BorderLayout.EAST);
-		add(infoPanel, BorderLayout.WEST);
-		setJMenuBar(createMenuBar());
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1200, 700);
+	/***
+	 * Empty Construtor to remove error from test
+	 */
+	public MainFrame() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public InfoPanel getInfoPanel() {
@@ -253,7 +266,6 @@ public class MainFrame extends JFrame {
 				if (sb.getSpotButtonID() == s.getSpotId()) {
 					if (!s.isFilled()) {
 						if (s.isHasZombie()) {
-
 							sb.addZombie();
 						}
 						if(s.isHasBZombie()) {
@@ -266,9 +278,7 @@ public class MainFrame extends JFrame {
 							sb.setIcon(null);
 						}
 					}
-
 				}
-
 			}
 		}
 	}
@@ -292,10 +302,10 @@ public class MainFrame extends JFrame {
 	}
 
 	public void checkWaveOver() {
+		//if the user wins, display a congratulations box then close
 		if (controller.getZombieCount() == 0) {
 			JOptionPane.showMessageDialog(null, "You win!\nThanks for playing!");
 			System.exit(1);
 		}
-
 	}
 }

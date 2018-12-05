@@ -10,7 +10,7 @@ public class Zombie {
 	private boolean alive;
 	public String turnDescriptionZombie = "";
 
-	/** Empty consturctor to help create other zombies **/
+	/** Empty constructor to help create other zombies **/
 	public Zombie() {
 
 	}

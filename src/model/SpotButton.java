@@ -9,7 +9,7 @@ public class SpotButton extends JButton
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int count =0;
+	private static int count = 0;
 	private int spotButtonID = 0;
 
 	
@@ -17,6 +17,11 @@ public class SpotButton extends JButton
 	{
 		super();
 		spotButtonID = count++;
+		
+		//reset count to zero once all buttons have been initialized (for next levels)
+		if(spotButtonID == 49) {
+			count = 0;
+		}
 	}
 
 	public  int getSpotButtonID() 

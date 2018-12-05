@@ -2,13 +2,13 @@ package model;
 
 /***
  * Class of a zombie that has double the attack points of a normal zombie, but it its health
- * is below 30, explodes and kills plant infront of it.
+ * is below 30, explodes and kills plant in front of it.
  * 
  * @author Noor
  *
  */
 @SuppressWarnings("unused")
-public class ExplosiveZombie extends Zombie {
+public class ExplosiveZombie { //extends Zombie
 
 	private int health; 
 	private int attackDamage = 20;
@@ -20,7 +20,7 @@ public class ExplosiveZombie extends Zombie {
 	public  String turnDescriptionZombie = "";
 	
 	public ExplosiveZombie(int health, Spot currentSpot, Board gameBoard) { 
-		super(health, currentSpot, gameBoard);	
+//		super(health, currentSpot, gameBoard);	
 		this.alive = true;
 		this.currentSpot = currentSpot;
 		this.atPlant = false;
@@ -60,9 +60,10 @@ public class ExplosiveZombie extends Zombie {
 			if ((futureSpotId != -1) && (futureSpotId != 9) && (futureSpotId != 19) && (futureSpotId != 29)
 					&& (futureSpotId != 39)) {
 				Spot futureSpot = gameBoard.spotAt(futureSpotId);
-				currentSpot.getSpotZombies().remove(this);
-				futureSpot.addSpotZombie(this);
-				futureSpot.setHasZombie(true);
+				currentSpot.getExplosiveZombies().remove(this);
+				currentSpot.setHasEZombie(false);
+				futureSpot.addExplosiveZombie(this);
+				futureSpot.setHasEZombie(true);
 				turnDescriptionZombie += "Explosive Zombie moved from SpotId: " + String.valueOf(currentSpot.getSpotId())
 						+ " to SpotID: " + String.valueOf(futureSpotId) + "\n";
 				currentSpot = futureSpot;
@@ -71,7 +72,6 @@ public class ExplosiveZombie extends Zombie {
 					|| futureSpotId == 39) {
 				System.out.println("You lose Zombie ate your brains");
 				gameBoard.setGameOver();
-				// System.exit(1);
 			}
 
 		} else {

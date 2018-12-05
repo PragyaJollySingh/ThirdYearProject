@@ -9,7 +9,7 @@ import view.MainFrame;
 
 public class MainFrameTest extends TestCase {
 
-	MainFrame frame = new MainFrame();
+	MainFrame frame;
 	
 	//set up a new MainFrame
 	protected void setUp() {

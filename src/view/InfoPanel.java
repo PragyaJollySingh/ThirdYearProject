@@ -304,6 +304,14 @@ public class InfoPanel extends JPanel
 		this.startLevelButton = startLevelButton;
 	}
 
+	public JButton getUndoButton() {
+		return UndoButton;
+	}
+
+	public void setUndoButton(JButton undoButton) {
+		UndoButton = undoButton;
+	}
+
 	public Controller getController() {
 		return controller;
 	}
