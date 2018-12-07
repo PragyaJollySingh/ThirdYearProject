@@ -13,6 +13,9 @@ import model.SpotButton;
 
 public class WaveInfoPanel extends JFrame {
 	
+	/**
+	 * Variables to be used in file
+	 */
 	private JLabel explanation;
 	private JPanel normal;
 	private JPanel explosive;
@@ -26,38 +29,47 @@ public class WaveInfoPanel extends JFrame {
 	private JButton submit;
 	private Controller controller;
 	
-	
+	/***
+	 * Constructor that calls function that creates the window
+	 */
 	public WaveInfoPanel() {
 		initialize();
 	}
 	
+	/***
+	 * Initializes the window, with default values after it has been created
+	 */
 	public void initialize() {
 		explanation = new JLabel("Enter the number of zombies for this level");
 		
+		//Area to take in number of regular zombies
 		normal = new JPanel(new GridLayout(1, 2));
 		normalZombies = new JLabel("Normal Zombies");
 		nzAmount = new JTextArea("0");
 		normal.add(normalZombies);
 		normal.add(nzAmount);
 		
+		//Area to take in number of explosive zombies wanted
 		explosive = new JPanel(new GridLayout(1, 2));
 		explosiveZombies = new JLabel("Explosive Zombies");
 		ezAmount = new JTextArea("0");
 		explosive.add(explosiveZombies);
 		explosive.add(ezAmount);
 		
+		//Area to take in number of bucket zombies wanted
 		bucket = new JPanel(new GridLayout(1, 2));
 		bucketZombies = new JLabel("Bucket Zombies");
 		bzAmount = new JTextArea("0");
 		bucket.add(bucketZombies);
 		bucket.add(bzAmount);
 		
-		submit = new JButton("Submit");
+		submit = new JButton("Submit"); //Create submit button
 		
 		controller = new Controller();
 		
-		setLayout(new GridLayout(0, 1));
+		setLayout(new GridLayout(0, 1)); //Set the layout of the panel
 		
+		//Adds different sections to the panel
 		add(explanation);
 		add(normal);
 		add(bucket);
@@ -69,6 +81,7 @@ public class WaveInfoPanel extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(300, 300);
 		
+		//Adds action listener to the submit button
 		submit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(checkValidity()) {
@@ -93,6 +106,10 @@ public class WaveInfoPanel extends JFrame {
 		controller = null;
 	}
 
+	/***
+	 * Checks that at least one zombie will be added to the game to start playing
+	 * @return boolean
+	 */
 	public boolean checkValidity() {
 		if(getNzAmount() + getEzAmount() + getBzAmount() > 0) {
 			return true;
@@ -101,6 +118,10 @@ public class WaveInfoPanel extends JFrame {
 		}
 	}
 	
+	/***
+	 * Getters and setters for the number of regular zombies
+	 * @return
+	 */
 	public int getNzAmount() {
 		return Integer.parseInt(nzAmount.getText());
 	}
@@ -109,6 +130,10 @@ public class WaveInfoPanel extends JFrame {
 		this.nzAmount = nzAmount;
 	}
 
+	/***
+	 * Getter and setter for the number of explosive zombies
+	 * @return
+	 */
 	public int getEzAmount() {
 		return Integer.parseInt(ezAmount.getText());
 	}
@@ -117,6 +142,10 @@ public class WaveInfoPanel extends JFrame {
 		this.ezAmount = ezAmount;
 	}
 
+	/***
+	 * Getters and setters for the number of bucket zombies
+	 * @return
+	 */
 	public int getBzAmount() {
 		return Integer.parseInt(bzAmount.getText());
 	}

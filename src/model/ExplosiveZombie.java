@@ -53,6 +53,9 @@ public class ExplosiveZombie extends Zombie {
 		this.alive = false;		
 	}		
 	
+	/***
+	 * Move the Explosive zombie when for each turn, and checks its health to know if it should explode
+	 */
 	public void moveZombie() {
 		turnDescriptionZombie = "\n";
 		if (!currentSpot.isFilled()) {
