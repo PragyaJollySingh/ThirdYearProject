@@ -58,9 +58,13 @@ public class PoleZombie extends Zombie {
 			}
 
 		} 
+		
 		//Jumps if it has not already, and there is a plant infront of it
 		else if(!jumped && (currentSpot.isHasSunflower() || currentSpot.isHasPea())){
+			//Get the spot behind the plant
 			int futureSpotId = currentSpot.getSpotId() - 2;
+			
+			//Moves the zombie to the new empty spot
 			if ((futureSpotId != -1) && (futureSpotId != 9) && (futureSpotId != 19) && (futureSpotId != 29)
 					&& (futureSpotId != 39)) {
 				Spot futureSpot = gameBoard.spotAt(futureSpotId);
@@ -77,6 +81,7 @@ public class PoleZombie extends Zombie {
 			}
 			jumped = true;
 		}
+		
 		else {
 			this.attacking = true;
 			if (currentSpot.isHasSunflower()) {

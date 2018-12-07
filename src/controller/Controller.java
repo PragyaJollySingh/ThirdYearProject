@@ -23,14 +23,28 @@ public class Controller {
 		
 	}
 
+	/***
+	 * Updates the icons that are on the board
+	 */
 	public void nextTurn() {
-		for (Spot s : gameBoard.getGrid()) {
+		for (Spot s : gameBoard.getGrid()) {			
+			/***
+			 * Moves any plants that are on the board
+			 */
 			if (s.isHasSunflower()) {
 				s.getSpotSunflower().addSunToPlayer();
 			}
 			if (s.isHasDSunflower()) {
 				s.getSpotDSunflower().addDSunToPlayer();
 			}
+			if (s.isHasPea()) {
+				s.getSpotPeaShooter().attackZombie();
+			}
+			
+			/**
+			 * Moves the zombies that are on the board
+			 */
+			//Moves Normal zombies
 			if (s.isHasZombie()) {
 				if (s.getSpotZombies() != null) {
 					for (Zombie z : s.getSpotZombies()) {
@@ -38,6 +52,7 @@ public class Controller {
 					}
 				}
 			}
+			//Moves any Explosive Zombies
 			if(s.isHasEZombie()) {
 				if(s.getExplosiveZombies() != null) {
 					for(ExplosiveZombie z : s.getExplosiveZombies()) {
@@ -45,6 +60,7 @@ public class Controller {
 					}
 				}
 			}
+			//Moves any Bucket Zombie
 			if(s.isHasBZombie()) {
 				if(s.getBucketZombies() != null) {
 					for(BucketZombie z : s.getBucketZombies()) {
@@ -52,12 +68,11 @@ public class Controller {
 					}
 				}
 			}
-			if (s.isHasPea()) {
-				s.getSpotPeaShooter().attackZombie();
-			}
 		}
 
 		System.out.println(Integer.toString(wave.getNumberOfZombies()) + " Zombies remain!\n");
+		
+		//Prints out winning messages
 		if (wave.getNumberOfZombies() == 0) {
 			System.out.println("Congrats you have defeated this wave of zombies!\nYou Win!\n");
 			wave.setOngoing(false);
@@ -99,24 +114,51 @@ public class Controller {
 		return spotIds;
 	}
 
+	/**
+	 * Starts a new wave, with a certain number of normal, bucker and explosive zombies
+	 * @param normal
+	 * @param bucket
+	 * @param explosive
+	 */
 	public void startWave(int normal, int bucket, int explosive) {
 		wave = new Wave(normal, bucket, explosive, gameBoard);
 	}
 
+	/**
+	 * Return the number of Zombies on the board
+	 * @return
+	 */
 	public int getZombieCount() {
 		return wave.getNumberOfZombies();
 	}
 
+	/**
+	 * Returns the numer of Sun Points that are available
+	 * @return
+	 */
 	public int getCurrentSunAmount() {
-
 		return currentPlayer.getSunAmount();
 	}
 
+	/***
+	 * Get the Description for the Actors that are on the board
+	 * @return
+	 */
 	public String getTurnDescription() {
 		String turnDescription = "";
 		for (Spot s : gameBoard.getGrid()) {
 			if (s.getSpotZombies().size() != 0) {
 				for (Zombie z : s.getSpotZombies()) {
+					turnDescription += z.getTurnDescriptionZombie();
+				}
+			}
+			if (s.getBucketZombies().size() != 0) {
+				for (BucketZombie z : s.getBucketZombies()) {
+					turnDescription += z.getTurnDescriptionZombie();
+				}
+			}
+			if (s.getExplosiveZombies().size() != 0) {
+				for (ExplosiveZombie z : s.getExplosiveZombies()) {
 					turnDescription += z.getTurnDescriptionZombie();
 				}
 			}
@@ -137,6 +179,10 @@ public class Controller {
 		return turnDescription;
 	}
 
+	/***
+	 * Checks if the game has reached an end point
+	 * @return
+	 */
 	public boolean checkGameOver() {
 		return gameBoard.isGameOver();
 	}

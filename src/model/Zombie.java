@@ -94,9 +94,7 @@ public class Zombie {
 					currentSpot.setFilled(false);
 					turnDescriptionZombie += "Zombie killed sunflower at spotId: "
 							+ String.valueOf(currentSpot.getSpotId());
-
 				}
-
 			}
 			else if (currentSpot.isHasDSunflower()) {
 				int currentHealth = currentSpot.getSpotDSunflower().getHealth();
