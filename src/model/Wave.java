@@ -88,16 +88,6 @@ public class Wave {
 		}
 	}
 
-	/***
-	 * Constructor to remove error from PeaShooterTest and ZombieTest
-	 * @param i
-	 * @param board
-	 */
-	public Wave(int i, Board board) {
-		// TODO Auto-generated constructor stub
-	}
-
-	
 	public String getTurnDescriptionWave() {
 		return turnDescriptionWave;
 	}

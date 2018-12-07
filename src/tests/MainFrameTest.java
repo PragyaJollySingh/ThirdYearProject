@@ -13,7 +13,7 @@ public class MainFrameTest extends TestCase {
 	
 	//set up a new MainFrame
 	protected void setUp() {
-		frame = new MainFrame();
+		frame = new MainFrame(1, 0, 0);
 	}
 	
 	protected void tearDown() {

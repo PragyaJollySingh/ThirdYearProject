@@ -8,7 +8,7 @@ package model;
  *
  */
 @SuppressWarnings("unused")
-public class ExplosiveZombie extends Zombie{
+public class ExplosiveZombie extends Zombie {
 
 	private int health; 
 	private int attackDamage = 20;
@@ -60,8 +60,8 @@ public class ExplosiveZombie extends Zombie{
 			if ((futureSpotId != -1) && (futureSpotId != 9) && (futureSpotId != 19) && (futureSpotId != 29)
 					&& (futureSpotId != 39)) {
 				Spot futureSpot = gameBoard.spotAt(futureSpotId);
-				currentSpot.getExplosiveZombies().remove(this);
-				//currentSpot.setHasEZombie(false);
+				currentSpot.getSpotZombies().remove(this);
+				currentSpot.setHasEZombie(false);
 				futureSpot.addExplosiveZombie(this);
 				futureSpot.setHasEZombie(true);
 				turnDescriptionZombie += "Explosive Zombie moved from SpotId: " + String.valueOf(currentSpot.getSpotId())
@@ -84,24 +84,6 @@ public class ExplosiveZombie extends Zombie{
 				explode();
 			}
 			
-			else if (currentSpot.isHasDSunflower()) {
-				int currentHealth = currentSpot.getSpotDSunflower().getHealth();
-				turnDescriptionZombie += " Double Sunflower current health: " + String.valueOf(currentHealth) + "\n"
-						+ "Bucket Zombie attacks the double sunflower at SpotId: " + String.valueOf(currentSpot.getSpotId())
-						+ "\n";
-				currentSpot.getSpotDSunflower().setHealth(currentHealth - attackDamage);
-				;
-				turnDescriptionZombie += "Double sunflower lost" + String.valueOf(attackDamage) + " Current health: "
-						+ String.valueOf(currentHealth - attackDamage) + "\n";
-
-				if (currentSpot.getSpotDSunflower().getHealth() <= 0) {
-					currentSpot.getSpotDSunflower().setAlive(false);
-					currentSpot.setHasDSunflower(false);
-					currentSpot.setFilled(false);
-					turnDescriptionZombie += "Bucket Zombie killed the double sunflower at spotID : "
-							+ String.valueOf(currentSpot.getSpotId());
-				}
-			}
 			else if (currentSpot.isHasSunflower()) {
 				int currentHealth = currentSpot.getSpotSunflower().getHealth();
 				turnDescriptionZombie += "Sunflower current health: " + String.valueOf(currentHealth) + "\n"

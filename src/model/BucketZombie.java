@@ -28,14 +28,13 @@ public class BucketZombie extends Zombie {
 	}
 
 	public void moveZombie() {
-		turnDescriptionZombie = "\n";
 		if (!currentSpot.isFilled()) {
 			int futureSpotId = currentSpot.getSpotId() - 1;
 			if ((futureSpotId != -1) && (futureSpotId != 9) && (futureSpotId != 19) && (futureSpotId != 29)
 					&& (futureSpotId != 39)) {
 				Spot futureSpot = gameBoard.spotAt(futureSpotId);
-				currentSpot.getBucketZombies().remove(this);
-				//currentSpot.setHasBZombie(false);
+				currentSpot.getSpotZombies().remove(this);
+				currentSpot.setHasBZombie(false);
 				futureSpot.addBucketZombie(this);
 				futureSpot.setHasBZombie(true);
 				turnDescriptionZombie += "Bucket Zombie moved from SpotId: " + String.valueOf(currentSpot.getSpotId())

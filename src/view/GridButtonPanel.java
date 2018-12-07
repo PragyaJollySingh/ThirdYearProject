@@ -496,22 +496,6 @@ public class GridButtonPanel extends JPanel {
 		}
 	}
 
-	public void addBucketZombie(int spotId) {
-		for (SpotButton sb : gridButtons) {
-			if (sb.getSpotButtonID() == spotId) {
-				sb.addBucketZombie();
-			}
-		}
-	}
-	
-	public void addExplodeZombie(int spotId) {
-		for (SpotButton sb : gridButtons) {
-			if (sb.getSpotButtonID() == spotId) {
-				sb.addExplodeZombie();
-			}
-		}
-	}
-	
 	public void initButtons() {
 		A1 = new SpotButton();
 		A2 = new SpotButton();

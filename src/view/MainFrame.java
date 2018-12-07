@@ -81,13 +81,6 @@ public class MainFrame extends JFrame {
 		});
 	}
 
-	/***
-	 * Empty Construtor to remove error from test
-	 */
-	public MainFrame() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public InfoPanel getInfoPanel() {
 		return infoPanel;
 	}

@@ -26,23 +26,9 @@ public class Turn {
 		}
 
 		for (Spot s : board.getGrid()) {
-			if (s.isHasZombie()) {
+			if (s.isHasZombie() || s.isHasBZombie() || s.isHasEZombie()) {
 				if (s.getSpotZombies() != null) {
 					for (Zombie z : s.getSpotZombies()) {
-						z.moveZombie();
-					}
-				}
-			}
-			if(s.isHasBZombie()) {
-				if(s.getBucketZombies() != null) {
-					for (BucketZombie z : s.getBucketZombies()) {
-						z.moveZombie();
-					}
-				}
-			}
-			if(s.isHasEZombie()) {
-				if(s.getExplosiveZombies() != null) {
-					for (ExplosiveZombie z : s.getExplosiveZombies()) {
 						z.moveZombie();
 					}
 				}

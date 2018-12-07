@@ -21,8 +21,6 @@ public class Spot
 //	private BucketZombie spotBZombie;
 //	private ExplosiveZombie spotEZombie;
 	private CopyOnWriteArrayList<Zombie> spotZombies;
-	private CopyOnWriteArrayList<ExplosiveZombie> explosiveZombies;
-	private CopyOnWriteArrayList<BucketZombie> bucketZombies;
 	
 	public Spot(int spotId, int xCord, int yCord, boolean filled) 
 	{
@@ -43,8 +41,6 @@ public class Spot
 //		this.spotBZombie = null;
 //		this.spotEZombie = null;
 		spotZombies = new CopyOnWriteArrayList<Zombie>();
-		explosiveZombies = new CopyOnWriteArrayList<ExplosiveZombie>();
-		bucketZombies = new CopyOnWriteArrayList<BucketZombie>();
 	}
 
 	public boolean isHasDSunflower(){
@@ -130,11 +126,11 @@ public class Spot
 	}
 	
 	public void addExplosiveZombie(ExplosiveZombie zombie) {
-		explosiveZombies.add(zombie);
+		spotZombies.add(zombie);
 	}
 	
 	public void addBucketZombie(BucketZombie zombie) {
-		bucketZombies.add(zombie);
+		spotZombies.add(zombie);
 	}
 	
 	public Zombie getFirstZombie() 
@@ -212,22 +208,6 @@ public class Spot
 	public void setSpotZombies(CopyOnWriteArrayList<Zombie> spotZombies) 
 	{
 		this.spotZombies = spotZombies;
-	}
-
-	public CopyOnWriteArrayList<ExplosiveZombie> getExplosiveZombies() {
-		return explosiveZombies;
-	}
-
-	public void setExplosiveZombies(CopyOnWriteArrayList<ExplosiveZombie> explosiveZombies) {
-		this.explosiveZombies = explosiveZombies;
-	}
-
-	public CopyOnWriteArrayList<BucketZombie> getBucketZombies() {
-		return bucketZombies;
-	}
-
-	public void setBucketZombies(CopyOnWriteArrayList<BucketZombie> bucketZombies) {
-		this.bucketZombies = bucketZombies;
 	}
 
 	public String toString() 

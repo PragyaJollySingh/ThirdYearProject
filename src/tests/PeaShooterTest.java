@@ -21,7 +21,7 @@ public class PeaShooterTest extends TestCase {
 		//set up the board so one zombie is coming in the same row as a planted peashooter
 		player = new Player(200);
 		board = new Board(player);
-		wave = new Wave(1, board);
+		wave = new Wave(1, 0, 0, board);
 		zombie = wave.getZombies().get(0);
 		
 		//plant a peashooter at x=0 in same y-cord as zombie

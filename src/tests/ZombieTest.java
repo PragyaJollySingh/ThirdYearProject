@@ -19,7 +19,7 @@ public class ZombieTest extends TestCase {
 	protected void setUp() {
 		player = new Player(200);
 		board = new Board(player);
-		wave = new Wave(1, board);
+		wave = new Wave(1, 0, 0, board);
 		spot = new Spot(9, 9, 0, false);
 		zombie = new Zombie(100, spot, board);
 	}
