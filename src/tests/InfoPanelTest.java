@@ -16,6 +16,7 @@ private InfoPanel panel;
 		panel = new InfoPanel();
 	}
 	
+	//Tears down the panel created
 	protected void tearDown() {
 		panel = null;
 	}
